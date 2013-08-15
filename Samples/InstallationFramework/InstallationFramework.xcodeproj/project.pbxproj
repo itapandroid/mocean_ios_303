@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C511CA8E16A87CEE005F61FB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511CA8D16A87CEE005F61FB /* CoreTelephony.framework */; };
+		C51F406A1626C070007009DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40691626C070007009DB /* UIKit.framework */; };
+		C51F406C1626C070007009DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F406B1626C070007009DB /* Foundation.framework */; };
+		C51F406E1626C070007009DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F406D1626C070007009DB /* CoreGraphics.framework */; };
+		C51F40741626C070007009DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C51F40721626C070007009DB /* InfoPlist.strings */; };
+		C51F40761626C070007009DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F40751626C070007009DB /* main.m */; };
+		C51F407A1626C070007009DB /* MASTSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F40791626C070007009DB /* MASTSAppDelegate.m */; };
+		C51F407C1626C070007009DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C51F407B1626C070007009DB /* Default.png */; };
+		C51F407E1626C070007009DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C51F407D1626C070007009DB /* Default@2x.png */; };
+		C51F40801626C070007009DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C51F407F1626C070007009DB /* Default-568h@2x.png */; };
+		C51F40831626C070007009DB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51F40811626C070007009DB /* MainStoryboard_iPhone.storyboard */; };
+		C51F40861626C070007009DB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51F40841626C070007009DB /* MainStoryboard_iPad.storyboard */; };
+		C51F40891626C070007009DB /* MASTSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F40881626C070007009DB /* MASTSViewController.m */; };
+		C51F40931626C2AE007009DB /* MASTAdView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40921626C2AE007009DB /* MASTAdView.framework */; };
+		C51F40981626C2E1007009DB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40941626C2E1007009DB /* CoreLocation.framework */; };
+		C51F40991626C2E1007009DB /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40951626C2E1007009DB /* EventKit.framework */; };
+		C51F409A1626C2E1007009DB /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40961626C2E1007009DB /* EventKitUI.framework */; };
+		C51F409B1626C2E1007009DB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51F40971626C2E1007009DB /* MessageUI.framework */; };
+		C5B72F6E1652F05300856916 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B72F6D1652F05300856916 /* ImageIO.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C511CA8D16A87CEE005F61FB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C51F40651626C070007009DB /* InstallationFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstallationFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51F40691626C070007009DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C51F406B1626C070007009DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C51F406D1626C070007009DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C51F40711626C070007009DB /* InstallationFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InstallationFramework-Info.plist"; sourceTree = "<group>"; };
+		C51F40731626C070007009DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C51F40751626C070007009DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C51F40771626C070007009DB /* InstallationFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstallationFramework-Prefix.pch"; sourceTree = "<group>"; };
+		C51F40781626C070007009DB /* MASTSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASTSAppDelegate.h; sourceTree = "<group>"; };
+		C51F40791626C070007009DB /* MASTSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASTSAppDelegate.m; sourceTree = "<group>"; };
+		C51F407B1626C070007009DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C51F407D1626C070007009DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C51F407F1626C070007009DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C51F40821626C070007009DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		C51F40851626C070007009DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		C51F40871626C070007009DB /* MASTSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASTSViewController.h; sourceTree = "<group>"; };
+		C51F40881626C070007009DB /* MASTSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASTSViewController.m; sourceTree = "<group>"; };
+		C51F40921626C2AE007009DB /* MASTAdView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASTAdView.framework; path = ../../Sources/MASTAdView/Products/MASTAdView.framework; sourceTree = "<group>"; };
+		C51F40941626C2E1007009DB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C51F40951626C2E1007009DB /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		C51F40961626C2E1007009DB /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		C51F40971626C2E1007009DB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C5B72F6D1652F05300856916 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C51F40621626C070007009DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51F406A1626C070007009DB /* UIKit.framework in Frameworks */,
+				C51F406C1626C070007009DB /* Foundation.framework in Frameworks */,
+				C51F406E1626C070007009DB /* CoreGraphics.framework in Frameworks */,
+				C51F40991626C2E1007009DB /* EventKit.framework in Frameworks */,
+				C51F409A1626C2E1007009DB /* EventKitUI.framework in Frameworks */,
+				C51F409B1626C2E1007009DB /* MessageUI.framework in Frameworks */,
+				C51F40981626C2E1007009DB /* CoreLocation.framework in Frameworks */,
+				C5B72F6E1652F05300856916 /* ImageIO.framework in Frameworks */,
+				C511CA8E16A87CEE005F61FB /* CoreTelephony.framework in Frameworks */,
+				C51F40931626C2AE007009DB /* MASTAdView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C51F405A1626C070007009DB = {
+			isa = PBXGroup;
+			children = (
+				C51F406F1626C070007009DB /* InstallationFramework */,
+				C51F40681626C070007009DB /* Frameworks */,
+				C51F40661626C070007009DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C51F40661626C070007009DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C51F40651626C070007009DB /* InstallationFramework.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C51F40681626C070007009DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C51F40691626C070007009DB /* UIKit.framework */,
+				C51F406B1626C070007009DB /* Foundation.framework */,
+				C51F406D1626C070007009DB /* CoreGraphics.framework */,
+				C51F40951626C2E1007009DB /* EventKit.framework */,
+				C51F40961626C2E1007009DB /* EventKitUI.framework */,
+				C51F40971626C2E1007009DB /* MessageUI.framework */,
+				C51F40941626C2E1007009DB /* CoreLocation.framework */,
+				C5B72F6D1652F05300856916 /* ImageIO.framework */,
+				C511CA8D16A87CEE005F61FB /* CoreTelephony.framework */,
+				C51F40921626C2AE007009DB /* MASTAdView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C51F406F1626C070007009DB /* InstallationFramework */ = {
+			isa = PBXGroup;
+			children = (
+				C51F40781626C070007009DB /* MASTSAppDelegate.h */,
+				C51F40791626C070007009DB /* MASTSAppDelegate.m */,
+				C51F40811626C070007009DB /* MainStoryboard_iPhone.storyboard */,
+				C51F40841626C070007009DB /* MainStoryboard_iPad.storyboard */,
+				C51F40871626C070007009DB /* MASTSViewController.h */,
+				C51F40881626C070007009DB /* MASTSViewController.m */,
+				C51F40701626C070007009DB /* Supporting Files */,
+			);
+			path = InstallationFramework;
+			sourceTree = "<group>";
+		};
+		C51F40701626C070007009DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C51F40711626C070007009DB /* InstallationFramework-Info.plist */,
+				C51F40721626C070007009DB /* InfoPlist.strings */,
+				C51F40751626C070007009DB /* main.m */,
+				C51F40771626C070007009DB /* InstallationFramework-Prefix.pch */,
+				C51F407B1626C070007009DB /* Default.png */,
+				C51F407D1626C070007009DB /* Default@2x.png */,
+				C51F407F1626C070007009DB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C51F40641626C070007009DB /* InstallationFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C51F408C1626C070007009DB /* Build configuration list for PBXNativeTarget "InstallationFramework" */;
+			buildPhases = (
+				C51F40611626C070007009DB /* Sources */,
+				C51F40621626C070007009DB /* Frameworks */,
+				C51F40631626C070007009DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstallationFramework;
+			productName = InstallationFramework;
+			productReference = C51F40651626C070007009DB /* InstallationFramework.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C51F405C1626C070007009DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MASTS;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Mocean Mobile";
+			};
+			buildConfigurationList = C51F405F1626C070007009DB /* Build configuration list for PBXProject "InstallationFramework" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C51F405A1626C070007009DB;
+			productRefGroup = C51F40661626C070007009DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C51F40641626C070007009DB /* InstallationFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C51F40631626C070007009DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51F40741626C070007009DB /* InfoPlist.strings in Resources */,
+				C51F407C1626C070007009DB /* Default.png in Resources */,
+				C51F407E1626C070007009DB /* Default@2x.png in Resources */,
+				C51F40801626C070007009DB /* Default-568h@2x.png in Resources */,
+				C51F40831626C070007009DB /* MainStoryboard_iPhone.storyboard in Resources */,
+				C51F40861626C070007009DB /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C51F40611626C070007009DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C51F40761626C070007009DB /* main.m in Sources */,
+				C51F407A1626C070007009DB /* MASTSAppDelegate.m in Sources */,
+				C51F40891626C070007009DB /* MASTSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C51F40721626C070007009DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51F40731626C070007009DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C51F40811626C070007009DB /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51F40821626C070007009DB /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		C51F40841626C070007009DB /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51F40851626C070007009DB /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C51F408A1626C070007009DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C51F408B1626C070007009DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C51F408D1626C070007009DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Sources/MASTAdView/Products\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstallationFramework/InstallationFramework-Prefix.pch";
+				INFOPLIST_FILE = "InstallationFramework/InstallationFramework-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C51F408E1626C070007009DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Sources/MASTAdView/Products\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstallationFramework/InstallationFramework-Prefix.pch";
+				INFOPLIST_FILE = "InstallationFramework/InstallationFramework-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C51F405F1626C070007009DB /* Build configuration list for PBXProject "InstallationFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51F408A1626C070007009DB /* Debug */,
+				C51F408B1626C070007009DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C51F408C1626C070007009DB /* Build configuration list for PBXNativeTarget "InstallationFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C51F408D1626C070007009DB /* Debug */,
+				C51F408E1626C070007009DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C51F405C1626C070007009DB /* Project object */;
+}

@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MASTAdView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MASTAdView</TokenIdentifier>
+			<Abstract type="html">Renders text, image and richmedia ads.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MASTAdView/version</TokenIdentifier>
+			<Abstract type="html">Returns the MASTAdView SDK&apos;s version.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initWithFrame:</TokenIdentifier>
+			<Abstract type="html">Initilizes an inline instance of the ad view.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithFrame:(CGRect)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">The area to place the view.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithFrame:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initInterstitial</TokenIdentifier>
+			<Abstract type="html">Initializes an interstital instance of the ad view.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/showInterstitial</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/showInterstitialWithDuration:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/closeInterstitial</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (id)initInterstitial</Declaration>
+			
+			
+			<Anchor>//api/name/initInterstitial</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setPlacementType:</TokenIdentifier>
+			<Abstract type="html">Returns the placement type for the instance.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initWithFrame:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initInterstitial</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, readonly) MASTAdViewPlacementType placementType</Declaration>
+			
+			
+			<Anchor>//api/name/placementType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/placementType</TokenIdentifier>
+			<Abstract type="html">Returns the placement type for the instance.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initWithFrame:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initInterstitial</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, readonly) MASTAdViewPlacementType placementType</Declaration>
+			
+			
+			<Anchor>//api/name/placementType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setSite:</TokenIdentifier>
+			<Abstract type="html">Specifies the site for the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSInteger site</Declaration>
+			
+			
+			<Anchor>//api/name/site</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/site</TokenIdentifier>
+			<Abstract type="html">Specifies the site for the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSInteger site</Declaration>
+			
+			
+			<Anchor>//api/name/site</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setZone:</TokenIdentifier>
+			<Abstract type="html">Specifies the zone for the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSInteger zone</Declaration>
+			
+			
+			<Anchor>//api/name/zone</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/zone</TokenIdentifier>
+			<Abstract type="html">Specifies the zone for the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSInteger zone</Declaration>
+			
+			
+			<Anchor>//api/name/zone</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setAdServerURL:</TokenIdentifier>
+			<Abstract type="html">Specifies the URL of the ad server.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *adServerURL</Declaration>
+			
+			
+			<Anchor>//api/name/adServerURL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/adServerURL</TokenIdentifier>
+			<Abstract type="html">Specifies the URL of the ad server.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *adServerURL</Declaration>
+			
+			
+			<Anchor>//api/name/adServerURL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setAdRequestParameters:</TokenIdentifier>
+			<Abstract type="html">Allows setting extra server parameters.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSMutableDictionary *adRequestParameters</Declaration>
+			
+			
+			<Anchor>//api/name/adRequestParameters</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/adRequestParameters</TokenIdentifier>
+			<Abstract type="html">Allows setting extra server parameters.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSMutableDictionary *adRequestParameters</Declaration>
+			
+			
+			<Anchor>//api/name/adRequestParameters</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setUseInternalBrowser:</TokenIdentifier>
+			<Abstract type="html">Set to enable the use of the internal browser for opening ad content.  Defaults to NO.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL useInternalBrowser</Declaration>
+			
+			
+			<Anchor>//api/name/useInternalBrowser</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/useInternalBrowser</TokenIdentifier>
+			<Abstract type="html">Set to enable the use of the internal browser for opening ad content.  Defaults to NO.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL useInternalBrowser</Declaration>
+			
+			
+			<Anchor>//api/name/useInternalBrowser</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setDelegate:</TokenIdentifier>
+			<Abstract type="html">Sets the MASTAdViewDelegate delegate receiever for the ad view.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;MASTAdViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/delegate</TokenIdentifier>
+			<Abstract type="html">Sets the MASTAdViewDelegate delegate receiever for the ad view.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;MASTAdViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/update</TokenIdentifier>
+			<Abstract type="html">Issues an immediate ad update and cancles any existing ad update.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)update</Declaration>
+			
+			
+			<Anchor>//api/name/update</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/updateWithTimeInterval:</TokenIdentifier>
+			<Abstract type="html">Issues an immediate ad update and cancels any pending ad update.
+Will automatically update every interval seconds.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/reset</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateWithTimeInterval:(NSTimeInterval)interval</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>interval</Name>
+					<Abstract type="html">The delay between requesting updates after the initial update.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateWithTimeInterval:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/reset</TokenIdentifier>
+			<Abstract type="html">Restates the instance to its default state.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)reset</Declaration>
+			
+			
+			<Anchor>//api/name/reset</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/removeContent</TokenIdentifier>
+			<Abstract type="html">Removes any displayed ad content and any associated state.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeContent</Declaration>
+			
+			
+			<Anchor>//api/name/removeContent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/showInterstitial</TokenIdentifier>
+			<Abstract type="html">Shows and closes the interstitial view.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)showInterstitial</Declaration>
+			
+			
+			<Anchor>//api/name/showInterstitial</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/showInterstitialWithDuration:</TokenIdentifier>
+			<Abstract type="html">Shows the interstitial and automatically closes after the specified duration.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)showInterstitialWithDuration:(NSTimeInterval)duration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>duration</Name>
+					<Abstract type="html">The amount of time to display the interstitial before closing it.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showInterstitialWithDuration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/closeInterstitial</TokenIdentifier>
+			<Abstract type="html">Closes the interstitial.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)closeInterstitial</Declaration>
+			
+			
+			<Anchor>//api/name/closeInterstitial</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/showCloseButton:afterDelay:</TokenIdentifier>
+			<Abstract type="html">Shows a close button after the specified delay after the ad is rendered.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/reset</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)showCloseButton:(BOOL)showCloseButton afterDelay:(NSTimeInterval)delay</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>showCloseButton</Name>
+					<Abstract type="html">Set to YES to display the close button after rendering ads.</Abstract>
+				</Parameter><Parameter>
+					<Name>delay</Name>
+					<Abstract type="html">The time to delay showing the close button after rendering the ad.  A
+value of 0 will show the button immediately.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showCloseButton:afterDelay:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setLocationDetectionEnabled:</TokenIdentifier>
+			<Abstract type="html">Returns the enablement status of location detection.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) BOOL locationDetectionEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/locationDetectionEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/locationDetectionEnabled</TokenIdentifier>
+			<Abstract type="html">Returns the enablement status of location detection.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) BOOL locationDetectionEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/locationDetectionEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setLocationDetectionEnabled:</TokenIdentifier>
+			<Abstract type="html">Used to enable or disable location detection.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)setLocationDetectionEnabled:(BOOL)enabled</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>enabled</Name>
+					<Abstract type="html">YES to enable location detection with defaults, NO to disable location detection.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setLocationDetectionEnabled:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</TokenIdentifier>
+			<Abstract type="html">Used to enable location detection with control over how the location is acquired.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)setLocationDetectionEnabledWithPupose:(NSString *)purpose significantUpdating:(BOOL)significantUpdating distanceFilter:(CLLocationDistance)distanceFilter desiredAccuracy:(CLLocationAccuracy)desiredAccuracy</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>purpose</Name>
+					<Abstract type="html">Message to present to the user as to why location is being used.  Can be nil.</Abstract>
+				</Parameter><Parameter>
+					<Name>significantUpdating</Name>
+					<Abstract type="html">If set to YES uses the startMonitoringSignificantLocationChanges
+if available on the device.  If not available then this parameter is ignored.  When available
+and set to YES this parameter causes the distanceFilter and desiredAccuracy parameters to
+be ignored.  If set to NO then startUpdatingLocation is used and the distanceFilter and
+desiredAccuracy parameters are applied.</Abstract>
+				</Parameter><Parameter>
+					<Name>distanceFilter</Name>
+					<Abstract type="html">Amount of distance used to trigger updates.</Abstract>
+				</Parameter><Parameter>
+					<Name>desiredAccuracy</Name>
+					<Abstract type="html">Acuracy needed for updates.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setLabelView:</TokenIdentifier>
+			<Abstract type="html">Text ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UILabel *labelView</Declaration>
+			
+			
+			<Anchor>//api/name/labelView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/labelView</TokenIdentifier>
+			<Abstract type="html">Text ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UILabel *labelView</Declaration>
+			
+			
+			<Anchor>//api/name/labelView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setImageView:</TokenIdentifier>
+			<Abstract type="html">Image ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImageView *imageView</Declaration>
+			
+			
+			<Anchor>//api/name/imageView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/imageView</TokenIdentifier>
+			<Abstract type="html">Image ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImageView *imageView</Declaration>
+			
+			
+			<Anchor>//api/name/imageView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setWebView:</TokenIdentifier>
+			<Abstract type="html">Web view ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIWebView *webView</Declaration>
+			
+			
+			<Anchor>//api/name/webView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/webView</TokenIdentifier>
+			<Abstract type="html">Web view ad container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIWebView *webView</Declaration>
+			
+			
+			<Anchor>//api/name/webView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setExpandView:</TokenIdentifier>
+			<Abstract type="html">Richmedia expand view container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIView *expandView</Declaration>
+			
+			
+			<Anchor>//api/name/expandView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/expandView</TokenIdentifier>
+			<Abstract type="html">Richmedia expand view container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIView *expandView</Declaration>
+			
+			
+			<Anchor>//api/name/expandView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setResizeView:</TokenIdentifier>
+			<Abstract type="html">Richmedia resize view container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIView *resizeView</Declaration>
+			
+			
+			<Anchor>//api/name/resizeView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/resizeView</TokenIdentifier>
+			<Abstract type="html">Richmedia resize view container.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIView *resizeView</Declaration>
+			
+			
+			<Anchor>//api/name/resizeView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setTest:</TokenIdentifier>
+			<Abstract type="html">Instructs the ad server to return test ads for the configured site/zone.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL test</Declaration>
+			
+			
+			<Anchor>//api/name/test</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/test</TokenIdentifier>
+			<Abstract type="html">Instructs the ad server to return test ads for the configured site/zone.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL test</Declaration>
+			
+			
+			<Anchor>//api/name/test</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setLogLevel:</TokenIdentifier>
+			<Abstract type="html">Specifies the log level.  All logging is via NSLog().</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldLogEvent:ofType:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) MASTAdViewLogEventType logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/logLevel</TokenIdentifier>
+			<Abstract type="html">Specifies the log level.  All logging is via NSLog().</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldLogEvent:ofType:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) MASTAdViewLogEventType logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/renderWithAdDescriptor:</TokenIdentifier>
+			<Abstract type="html">Renders an ad directly without downloading it from the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)renderWithAdDescriptor:(MASTMoceanAdDescriptor *)adDescriptor</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adDescriptor</Name>
+					<Abstract type="html">The ad descriptor to render.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/renderWithAdDescriptor:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

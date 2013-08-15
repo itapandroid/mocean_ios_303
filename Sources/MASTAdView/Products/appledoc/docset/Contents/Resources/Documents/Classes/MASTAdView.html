@@ -1,0 +1,2145 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MASTAdView Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Mocean Mobile SDK </a></h1>
+				<a id="developerHome" href="../index.html">Mocean Mobile</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MASTAdView Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/adRequestParameters">&nbsp;&nbsp;&nbsp;&nbsp;adRequestParameters</option>
+	
+	<option value="//api/name/adServerURL">&nbsp;&nbsp;&nbsp;&nbsp;adServerURL</option>
+	
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/expandView">&nbsp;&nbsp;&nbsp;&nbsp;expandView</option>
+	
+	<option value="//api/name/imageView">&nbsp;&nbsp;&nbsp;&nbsp;imageView</option>
+	
+	<option value="//api/name/labelView">&nbsp;&nbsp;&nbsp;&nbsp;labelView</option>
+	
+	<option value="//api/name/locationDetectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;locationDetectionEnabled</option>
+	
+	<option value="//api/name/logLevel">&nbsp;&nbsp;&nbsp;&nbsp;logLevel</option>
+	
+	<option value="//api/name/placementType">&nbsp;&nbsp;&nbsp;&nbsp;placementType</option>
+	
+	<option value="//api/name/resizeView">&nbsp;&nbsp;&nbsp;&nbsp;resizeView</option>
+	
+	<option value="//api/name/site">&nbsp;&nbsp;&nbsp;&nbsp;site</option>
+	
+	<option value="//api/name/test">&nbsp;&nbsp;&nbsp;&nbsp;test</option>
+	
+	<option value="//api/name/useInternalBrowser">&nbsp;&nbsp;&nbsp;&nbsp;useInternalBrowser</option>
+	
+	<option value="//api/name/webView">&nbsp;&nbsp;&nbsp;&nbsp;webView</option>
+	
+	<option value="//api/name/zone">&nbsp;&nbsp;&nbsp;&nbsp;zone</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/version">&nbsp;&nbsp;&nbsp;&nbsp;+ version</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/closeInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- closeInterstitial</option>
+	
+	<option value="//api/name/initInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- initInterstitial</option>
+	
+	<option value="//api/name/initWithFrame:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFrame:</option>
+	
+	<option value="//api/name/removeContent">&nbsp;&nbsp;&nbsp;&nbsp;- removeContent</option>
+	
+	<option value="//api/name/renderWithAdDescriptor:">&nbsp;&nbsp;&nbsp;&nbsp;- renderWithAdDescriptor:</option>
+	
+	<option value="//api/name/reset">&nbsp;&nbsp;&nbsp;&nbsp;- reset</option>
+	
+	<option value="//api/name/setLocationDetectionEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;- setLocationDetectionEnabled:</option>
+	
+	<option value="//api/name/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:">&nbsp;&nbsp;&nbsp;&nbsp;- setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</option>
+	
+	<option value="//api/name/showCloseButton:afterDelay:">&nbsp;&nbsp;&nbsp;&nbsp;- showCloseButton:afterDelay:</option>
+	
+	<option value="//api/name/showInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitial</option>
+	
+	<option value="//api/name/showInterstitialWithDuration:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithDuration:</option>
+	
+	<option value="//api/name/update">&nbsp;&nbsp;&nbsp;&nbsp;- update</option>
+	
+	<option value="//api/name/updateWithTimeInterval:">&nbsp;&nbsp;&nbsp;&nbsp;- updateWithTimeInterval:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Required configuration">Required configuration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Optional configuration">Optional configuration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Updating and resetting ad content">Updating and resetting ad content</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Controlling interstitial presentation">Controlling interstitial presentation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Close button support">Close button support</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Location detection support">Location detection support</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ad containers">Ad containers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Test content, logging and debugging">Test content, logging and debugging</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/adRequestParameters">adRequestParameters</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/adServerURL">adServerURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/expandView">expandView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageView">imageView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/labelView">labelView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/locationDetectionEnabled">locationDetectionEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logLevel">logLevel</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/placementType">placementType</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resizeView">resizeView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/site">site</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/test">test</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/useInternalBrowser">useInternalBrowser</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webView">webView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/zone">zone</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/version">version</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/closeInterstitial">closeInterstitial</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initInterstitial">initInterstitial</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFrame:">initWithFrame:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeContent">removeContent</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renderWithAdDescriptor:">renderWithAdDescriptor:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reset">reset</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLocationDetectionEnabled:">setLocationDetectionEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:">setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showCloseButton:afterDelay:">showCloseButton:afterDelay:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitial">showInterstitial</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithDuration:">showInterstitialWithDuration:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/update">update</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateWithTimeInterval:">updateWithTimeInterval:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MASTAdView Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MASTAdView Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIView</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MASTAdView.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Renders text, image and richmedia ads.</p>
+
+<p>TODO: Include more information here and possibly a quick sample.</p>
+
+<p>The -ObjC linker option is required when including the MASTAdView SDK.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/version">+&nbsp;version</a></code>
+		<span class="tooltip"><p>Returns the MASTAdView SDK&rsquo;s version.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initialization" name="task_Initialization"></a>
+						<h3 class="subsubtitle task-title">Initialization</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithFrame:">&ndash;&nbsp;initWithFrame:</a></code>
+		<span class="tooltip"><p>Initilizes an inline instance of the ad view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initInterstitial">&ndash;&nbsp;initInterstitial</a></code>
+		<span class="tooltip"><p>Initializes an interstital instance of the ad view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/placementType">&nbsp;&nbsp;placementType</a></code>
+		<span class="tooltip"><p>Returns the placement type for the instance.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Required configuration" name="task_Required configuration"></a>
+						<h3 class="subsubtitle task-title">Required configuration</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/site">&nbsp;&nbsp;site</a></code>
+		<span class="tooltip"><p>Specifies the site for the ad network.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/zone">&nbsp;&nbsp;zone</a></code>
+		<span class="tooltip"><p>Specifies the zone for the ad network.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Optional configuration" name="task_Optional configuration"></a>
+						<h3 class="subsubtitle task-title">Optional configuration</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/adServerURL">&nbsp;&nbsp;adServerURL</a></code>
+		<span class="tooltip"><p>Specifies the URL of the ad server.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/adRequestParameters">&nbsp;&nbsp;adRequestParameters</a></code>
+		<span class="tooltip"><p>Allows setting extra server parameters.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/useInternalBrowser">&nbsp;&nbsp;useInternalBrowser</a></code>
+		<span class="tooltip"><p>Set to enable the use of the internal browser for opening ad content.  Defaults to <code>NO</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		<span class="tooltip"><p>Sets the <a href="../Protocols/MASTAdViewDelegate.html">MASTAdViewDelegate</a> delegate receiever for the ad view.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Updating and resetting ad content" name="task_Updating and resetting ad content"></a>
+						<h3 class="subsubtitle task-title">Updating and resetting ad content</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/update">&ndash;&nbsp;update</a></code>
+		<span class="tooltip"><p>Issues an immediate ad update and cancles any existing ad update.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateWithTimeInterval:">&ndash;&nbsp;updateWithTimeInterval:</a></code>
+		<span class="tooltip"><p>Issues an immediate ad <a href="#//api/name/update">update</a> and cancels any pending ad <a href="#//api/name/update">update</a>.
+Will automatically <a href="#//api/name/update">update</a> every interval seconds.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reset">&ndash;&nbsp;reset</a></code>
+		<span class="tooltip"><p>Restates the instance to its default state.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeContent">&ndash;&nbsp;removeContent</a></code>
+		<span class="tooltip"><p>Removes any displayed ad content and any associated state.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Controlling interstitial presentation" name="task_Controlling interstitial presentation"></a>
+						<h3 class="subsubtitle task-title">Controlling interstitial presentation</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showInterstitial">&ndash;&nbsp;showInterstitial</a></code>
+		<span class="tooltip"><p>Shows and closes the interstitial view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showInterstitialWithDuration:">&ndash;&nbsp;showInterstitialWithDuration:</a></code>
+		<span class="tooltip"><p>Shows the interstitial and automatically closes after the specified duration.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/closeInterstitial">&ndash;&nbsp;closeInterstitial</a></code>
+		<span class="tooltip"><p>Closes the interstitial.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Close button support" name="task_Close button support"></a>
+						<h3 class="subsubtitle task-title">Close button support</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showCloseButton:afterDelay:">&ndash;&nbsp;showCloseButton:afterDelay:</a></code>
+		<span class="tooltip"><p>Shows a close button after the specified delay after the ad is rendered.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Location detection support" name="task_Location detection support"></a>
+						<h3 class="subsubtitle task-title">Location detection support</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/locationDetectionEnabled">&nbsp;&nbsp;locationDetectionEnabled</a></code>
+		<span class="tooltip"><p>Returns the enablement status of location detection.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLocationDetectionEnabled:">&ndash;&nbsp;setLocationDetectionEnabled:</a></code>
+		<span class="tooltip"><p>Used to enable or disable location detection.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:">&ndash;&nbsp;setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</a></code>
+		<span class="tooltip"><p>Used to enable location detection with control over how the location is acquired.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Ad containers" name="task_Ad containers"></a>
+						<h3 class="subsubtitle task-title">Ad containers</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/labelView">&nbsp;&nbsp;labelView</a></code>
+		<span class="tooltip"><p>Text ad container.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageView">&nbsp;&nbsp;imageView</a></code>
+		<span class="tooltip"><p>Image ad container.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webView">&nbsp;&nbsp;webView</a></code>
+		<span class="tooltip"><p>Web view ad container.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/expandView">&nbsp;&nbsp;expandView</a></code>
+		<span class="tooltip"><p>Richmedia expand view container.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resizeView">&nbsp;&nbsp;resizeView</a></code>
+		<span class="tooltip"><p>Richmedia resize view container.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Test content, logging and debugging" name="task_Test content, logging and debugging"></a>
+						<h3 class="subsubtitle task-title">Test content, logging and debugging</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/test">&nbsp;&nbsp;test</a></code>
+		<span class="tooltip"><p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logLevel">&nbsp;&nbsp;logLevel</a></code>
+		<span class="tooltip"><p>Specifies the log level.  All logging is via NSLog().</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/renderWithAdDescriptor:">&ndash;&nbsp;renderWithAdDescriptor:</a></code>
+		<span class="tooltip"><p>Renders an ad directly without downloading it from the ad network.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/adRequestParameters" title="adRequestParameters"></a>
+	<h3 class="subsubtitle method-title">adRequestParameters</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Allows setting extra server parameters.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSMutableDictionary *adRequestParameters</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Allows setting extra server parameters.</p>
+
+<p>The SDK will set various parameters based on configuration and other options.</p>
+
+<p>For more information see <a href="http://developer.moceanmobile.com/Mocean">http://developer.moceanmobile.com/Mocean</a>_Ad_Request_API.</p><div class="warning"><p><strong>Warning:</strong> All parameter key and values must be NSString instances.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/adServerURL" title="adServerURL"></a>
+	<h3 class="subsubtitle method-title">adServerURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the URL of the ad server.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *adServerURL</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the URL of the ad server.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the <a href="../Protocols/MASTAdViewDelegate.html">MASTAdViewDelegate</a> delegate receiever for the ad view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;MASTAdViewDelegate&gt; delegate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the <a href="../Protocols/MASTAdViewDelegate.html">MASTAdViewDelegate</a> delegate receiever for the ad view.</p><div class="warning"><p><strong>Warning:</strong> Proper reference management practices should be observed when using delegates.</p></div><div class="warning"><p><strong>Warning:</strong> Ensure that the delegate is set to nil prior to releasing the ad view&rsquo;s instance.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/expandView" title="expandView"></a>
+	<h3 class="subsubtitle method-title">expandView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Richmedia expand view container.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIView *expandView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Richmedia expand view container.</p>
+
+<p>This view is the container used to hold the view to be expanded.  For richmedia ads that request
+an expand this will contain the UIWebView.  This doesn&rsquo;t include richmedia ads that expand with
+another creative (two part expand).</p><div class="warning"><p><strong>Warning:</strong> Do not attempt to move or affect the relationship of the view within its superview.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageView" title="imageView"></a>
+	<h3 class="subsubtitle method-title">imageView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Image ad container.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIImageView *imageView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Image ad container.</p>
+
+<p>This can be accessed to modify how the image is handled.</p><div class="warning"><p><strong>Warning:</strong> Do not attempt to move or affect the relationship of the view within its superview.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/labelView" title="labelView"></a>
+	<h3 class="subsubtitle method-title">labelView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Text ad container.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UILabel *labelView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Text ad container.</p>
+
+<p>This can be accessed to modify how text is rendered such as font size, color, background color, etc&hellip;</p><div class="warning"><p><strong>Warning:</strong> Do not attempt to move or affect the relationship of the view within its superview.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/locationDetectionEnabled" title="locationDetectionEnabled"></a>
+	<h3 class="subsubtitle method-title">locationDetectionEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the enablement status of location detection.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL locationDetectionEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the enablement status of location detection.</p>
+
+<p>May return <code>NO</code> even if one of the setLocationDetectionEnabled methods was used
+to enable it.  This can happen if the device doesn&rsquo;t support location enablement
+or if the user has denied location permissions to the application.  Note however
+that this property should not be used to determine either of those cases for the
+application.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logLevel" title="logLevel"></a>
+	<h3 class="subsubtitle method-title">logLevel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the log level.  All logging is via NSLog().</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) MASTAdViewLogEventType logLevel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the log level.  All logging is via NSLog().</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdView:shouldLogEvent:ofType:">[MASTAdViewDelegate MASTAdView:shouldLogEvent:ofType:]</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/placementType" title="placementType"></a>
+	<h3 class="subsubtitle method-title">placementType</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the placement type for the instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) MASTAdViewPlacementType placementType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the placement type for the instance.</p>
+
+<p>This is set based on how the instance was initialized.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/initWithFrame:">&ndash; initWithFrame:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/initInterstitial">&ndash; initInterstitial</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resizeView" title="resizeView"></a>
+	<h3 class="subsubtitle method-title">resizeView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Richmedia resize view container.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIView *resizeView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Richmedia resize view container.</p>
+
+<p>This view is the container used to render resized richmedia ad it requests to resize.</p><div class="warning"><p><strong>Warning:</strong> Do not attempt to move or affect the relationship of the view within its superview.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/site" title="site"></a>
+	<h3 class="subsubtitle method-title">site</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the site for the ad network.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger site</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the site for the ad network.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/test" title="test"></a>
+	<h3 class="subsubtitle method-title">test</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL test</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p><div class="warning"><p><strong>Warning:</strong> This should never be set to <code>YES</code> for application releases.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/useInternalBrowser" title="useInternalBrowser"></a>
+	<h3 class="subsubtitle method-title">useInternalBrowser</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set to enable the use of the internal browser for opening ad content.  Defaults to <code>NO</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL useInternalBrowser</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set to enable the use of the internal browser for opening ad content.  Defaults to <code>NO</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webView" title="webView"></a>
+	<h3 class="subsubtitle method-title">webView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Web view ad container.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIWebView *webView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Web view ad container.</p>
+
+<p>This can be modified to change aspects of the web view such as background color, etc..</p><div class="warning"><p><strong>Warning:</strong> Do not attempt to move or affect the relationship of the view within its superview.</p></div><div class="warning"><p><strong>Warning:</strong> Do not attempt to change the <a href="#//api/name/delegate">delegate</a> or affect how content is rendered as this may
+interfere with richmedia ads.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/zone" title="zone"></a>
+	<h3 class="subsubtitle method-title">zone</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the zone for the ad network.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger zone</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the zone for the ad network.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/version" title="version"></a>
+	<h3 class="subsubtitle method-title">version</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the MASTAdView SDK&rsquo;s version.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)version</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the MASTAdView SDK&rsquo;s version.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/closeInterstitial" title="closeInterstitial"></a>
+	<h3 class="subsubtitle method-title">closeInterstitial</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Closes the interstitial.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)closeInterstitial</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Closes the interstitial.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initInterstitial" title="initInterstitial"></a>
+	<h3 class="subsubtitle method-title">initInterstitial</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes an interstital instance of the ad view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initInterstitial</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes an interstital instance of the ad view.</p>
+
+<p>The view is NOT intended to be used inline with other content or added to
+other views.  Instead use the interstitial methods to show and close the
+full screen view.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/showInterstitial">&ndash; showInterstitial</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/showInterstitialWithDuration:">&ndash; showInterstitialWithDuration:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/closeInterstitial">&ndash; closeInterstitial</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithFrame:" title="initWithFrame:"></a>
+	<h3 class="subsubtitle method-title">initWithFrame:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initilizes an inline instance of the ad view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithFrame:(CGRect)<em>frame</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frame</em></dt>
+			<dd><p>The area to place the view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initilizes an inline instance of the ad view.</p>
+
+<p>The view can be added to other views as with any other UIView object.  The frame is
+used to determine the size of the ad in the requested to the ad server.  If not known
+at initialization time, ensure that the view&rsquo;s frame is set prior to calling <a href="#//api/name/update">update</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeContent" title="removeContent"></a>
+	<h3 class="subsubtitle method-title">removeContent</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes any displayed ad content and any associated state.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeContent</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes any displayed ad content and any associated state.</p>
+
+<p>-Collapses any expanded or resized richmedia ads.
+-Closes interstitial.</p>
+
+<p>Unlike <a href="#//api/name/reset">reset</a>, it does not <a href="#//api/name/reset">reset</a> the instance to it&rsquo;s default state.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/renderWithAdDescriptor:" title="renderWithAdDescriptor:"></a>
+	<h3 class="subsubtitle method-title">renderWithAdDescriptor:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Renders an ad directly without downloading it from the ad network.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)renderWithAdDescriptor:(MASTMoceanAdDescriptor *)<em>adDescriptor</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adDescriptor</em></dt>
+			<dd><p>The ad descriptor to render.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Renders an ad directly without downloading it from the ad network.</p>
+
+<p>An <a href="#//api/name/update">update</a> in progress due to <a href="#//api/name/update">update</a> or <a href="#//api/name/updateWithTimeInterval:">updateWithTimeInterval:</a> will override any
+ad set with this method.  Call <a href="#//api/name/reset">reset</a> prior to calling this if <a href="#//api/name/update">update</a> was used
+to download an ad from the ad network.</p><div class="warning"><p><strong>Warning:</strong> This not intended to be used in application releases.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reset" title="reset"></a>
+	<h3 class="subsubtitle method-title">reset</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Restates the instance to its default state.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reset</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Restates the instance to its default state.</p>
+
+<p>-Stops updates and cancels the <a href="#//api/name/update">update</a> interval.
+-Stops location detection.
+-Collapses any expanded or resized richmedia ads.
+-Closes interstitial.
+-Closes internal ad browser.</p>
+
+<p>Should be sent before releasing the instance if another object may be retaining it
+such as a superview or list.  This allows the application to suspend ad updating
+and interaction activities to allow other application activitis to occur.  After
+responding to other activities <a href="#//api/name/update">update</a> or <a href="#//api/name/updateWithTimeInterval:">updateWithTimeInterval:</a> can be sent again
+to resume ad updates.</p><div class="warning"><p><strong>Warning:</strong> If the project is using ARC (automatic reference counting) this MUST be called
+to cancel internal timers.  If not the main NSRunLoop will retain a reference to the
+MASTAdView instance and continue invoking its timers.</p></div><div class="warning"><p><strong>Warning:</strong> Does not reset the <a href="#//api/name/delegate">delegate</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLocationDetectionEnabled:" title="setLocationDetectionEnabled:"></a>
+	<h3 class="subsubtitle method-title">setLocationDetectionEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Used to enable or disable location detection.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setLocationDetectionEnabled:(BOOL)<em>enabled</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>enabled</em></dt>
+			<dd><p><code>YES</code> to enable location detection with defaults, <code>NO</code> to disable location detection.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Used to enable or disable location detection.</p>
+
+<p>Enabling location detection makes use of the devices location services to
+set the lat and long server properties that get sent with each ad request.</p>
+
+<p>Note that it could take time to acquire the location so an immediate <a href="#//api/name/update">update</a>
+call after location detection enablement may not include the location in the
+ad network request.</p>
+
+<p>A call to <a href="#//api/name/reset">reset</a> will stop location detection.</p>
+
+<p>When enabling location detection with this method the most power efficient
+options are used based on the devices capabilities.  To specify more control
+over location options enable with setLocationDetectionEnabledWithPurpose:&hellip;</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:" title="setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:"></a>
+	<h3 class="subsubtitle method-title">setLocationDetectionEnabledWithPupose:significantUpdating:distanceFilter:desiredAccuracy:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Used to enable location detection with control over how the location is acquired.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setLocationDetectionEnabledWithPupose:(NSString *)<em>purpose</em> significantUpdating:(BOOL)<em>significantUpdating</em> distanceFilter:(CLLocationDistance)<em>distanceFilter</em> desiredAccuracy:(CLLocationAccuracy)<em>desiredAccuracy</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>purpose</em></dt>
+			<dd><p>Message to present to the user as to why location is being used.  Can be nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>significantUpdating</em></dt>
+			<dd><p>If set to <code>YES</code> uses the startMonitoringSignificantLocationChanges
+if available on the device.  If not available then this parameter is ignored.  When available
+and set to <code>YES</code> this parameter causes the distanceFilter and desiredAccuracy parameters to
+be ignored.  If set to <code>NO</code> then startUpdatingLocation is used and the distanceFilter and
+desiredAccuracy parameters are applied.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>distanceFilter</em></dt>
+			<dd><p>Amount of distance used to trigger updates.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>desiredAccuracy</em></dt>
+			<dd><p>Acuracy needed for updates.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Used to enable location detection with control over how the location is acquired.</p><div class="warning"><p><strong>Warning:</strong> It is possible to configure location detection to use significant power and reduce
+battery life of the device.  For most applications where location detection is desired use
+<a href="#//api/name/locationDetectionEnabled">setLocationDetectionEnabled:</a> for optimal battery life based on the device&rsquo;s capabilities.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="http://developer.apple.com/library/ios/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html">CLLocationManager</a> for reference on the purpose, distanceFilter and desiredAccuracy parameters.</p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showCloseButton:afterDelay:" title="showCloseButton:afterDelay:"></a>
+	<h3 class="subsubtitle method-title">showCloseButton:afterDelay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows a close button after the specified delay after the ad is rendered.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showCloseButton:(BOOL)<em>showCloseButton</em> afterDelay:(NSTimeInterval)<em>delay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>showCloseButton</em></dt>
+			<dd><p>Set to <code>YES</code> to display the close button after rendering ads.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delay</em></dt>
+			<dd><p>The time to delay showing the close button after rendering the ad.  A
+value of 0 will show the button immediately.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Shows a close button after the specified delay after the ad is rendered.</p>
+
+<p>This can be used for both inline/banner/custom and interstitial ads.  For most cases
+this should not be required since banner ads don&rsquo;t usually have a need for a close
+button and richmedia ads that expand or resize will offer their own close button.</p>
+
+<p>This SHOULD be used for interstitial ads that are known to not be richmedia as they
+will not have a built in close button.</p>
+
+<p>The setting applies for all subsequent updates.  The button can be customized using the
+MASTAdViewCustomCloseButton: <a href="#//api/name/delegate">delegate</a> method.</p><div class="warning"><p><strong>Warning:</strong> Ensure <a href="#//api/name/reset">[MASTAdView reset]</a> is invoked when the instance will no longer be used or
+is being removed from the view stack.  This will prevent the main NSRunLoop from retaining
+the MASTAdView instance after its intended release.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/reset">&ndash; reset</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showInterstitial" title="showInterstitial"></a>
+	<h3 class="subsubtitle method-title">showInterstitial</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows and closes the interstitial view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitial</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Shows and closes the interstitial view.</p>
+
+<p>Can only be used if the instance was initialized with <a href="#//api/name/initInterstitial">initInterstitial</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showInterstitialWithDuration:" title="showInterstitialWithDuration:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialWithDuration:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows the interstitial and automatically closes after the specified duration.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithDuration:(NSTimeInterval)<em>duration</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>duration</em></dt>
+			<dd><p>The amount of time to display the interstitial before closing it.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Shows the interstitial and automatically closes after the specified duration.</p>
+
+<p>Can only be used if the instance was initialized with <a href="#//api/name/initInterstitial">initInterstitial</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/update" title="update"></a>
+	<h3 class="subsubtitle method-title">update</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Issues an immediate ad update and cancles any existing ad update.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)update</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Issues an immediate ad update and cancles any existing ad update.</p>
+
+<p>If <a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewSupportsCalendar:">[MASTAdViewDelegate MASTAdViewSupportsCalendar:]</a> is implemented by the <a href="#//api/name/delegate">delegate</a> then
+this message will determine if a request to the user for access to the calendar is needed.
+If so, the instance will request access from the user.  Developers desiring to control when
+this request occurs can do so prior to calling update.  Refer to iOS EKEventStore
+documentation for more information.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateWithTimeInterval:" title="updateWithTimeInterval:"></a>
+	<h3 class="subsubtitle method-title">updateWithTimeInterval:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Issues an immediate ad <a href="#//api/name/update">update</a> and cancels any pending ad <a href="#//api/name/update">update</a>.
+Will automatically <a href="#//api/name/update">update</a> every interval seconds.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateWithTimeInterval:(NSTimeInterval)<em>interval</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>interval</em></dt>
+			<dd><p>The delay between requesting updates after the initial <a href="#//api/name/update">update</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Issues an immediate ad update and cancels any pending ad update.
+Will automatically update every interval seconds.</p>
+
+<p>If <a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewSupportsCalendar:">[MASTAdViewDelegate MASTAdViewSupportsCalendar:]</a> is implemented by the <a href="#//api/name/delegate">delegate</a> then
+this message will determine if a request to the user for access to the calendar is needed.
+If so, the instance will request access from the user.  Developers desiring to control when
+this request occurs can do so prior to calling <a href="#//api/name/update">update</a>.  Refer to iOS EKEventStore
+documentation for more information.</p><div class="warning"><p><strong>Warning:</strong> Ensure <a href="#//api/name/reset">[MASTAdView reset]</a> is invoked when the instance will no longer be used or
+is being removed from the view stack.  This will prevent the main NSRunLoop from retaining
+the MASTAdView instance after its intended release.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/reset">&ndash; reset</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Mocean Mobile. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/MASTAdViewDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/MASTAdViewDelegate</TokenIdentifier>
+			<Abstract type="html">Protocal for interaction with the MASTAdView.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewDidRecieveAd:</TokenIdentifier>
+			<Abstract type="html">Sent after an ad has been downloaded and rendered.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewDidRecieveAd:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewDidRecieveAd:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:didFailToReceiveAdWithError:</TokenIdentifier>
+			<Abstract type="html">Sent if an error was encoutered while donloading or rendering an ad.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdView:(MASTAdView *)adView didFailToReceiveAdWithError:(NSError *)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">The error encountered while attempting to receive or render the ad.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdView:didFailToReceiveAdWithError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldOpenURL:</TokenIdentifier>
+			<Abstract type="html">Sent when the ad will navigate to a clicked link.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdView:(MASTAdView *)adView shouldOpenURL:(NSURL *)url</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>url</Name>
+					<Abstract type="html">The URL to open.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES Allow the SDK to open the link with UIApplication&apos;s openURL: or the internal browser.NO Ignore the request</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdView:shouldOpenURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewCloseButtonPressed:</TokenIdentifier>
+			<Abstract type="html">Sent when the close button is pressed by the user.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewCloseButtonPressed:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewCloseButtonPressed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewCustomCloseButton:</TokenIdentifier>
+			<Abstract type="html">Implement to return a custom close button.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (UIButton *)MASTAdViewCustomCloseButton:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">UIButton instance.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewCustomCloseButton:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewWillExpand:</TokenIdentifier>
+			<Abstract type="html">Sent before the ad content is expanded in response to a richmedia expand event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewWillExpand:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewWillExpand:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewDidExpand:</TokenIdentifier>
+			<Abstract type="html">Sent after the ad content is expanded in response to a richmedia expand event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewDidExpand:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewDidExpand:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:willResizeToFrame:</TokenIdentifier>
+			<Abstract type="html">Sent before the ad content is resized in response to a richmedia resize event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdView:(MASTAdView *)adView willResizeToFrame:(CGRect)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">The frame relative to the window where the resized content is displayed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdView:willResizeToFrame:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:didResizeToFrame:</TokenIdentifier>
+			<Abstract type="html">Sent after the ad content is resized in response to a richmedia resize event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdView:(MASTAdView *)adView didResizeToFrame:(CGRect)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">The frame relative to the window where the resized content is displayed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdView:didResizeToFrame:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewWillCollapse:</TokenIdentifier>
+			<Abstract type="html">Sent before ad content is collaped if expanded or resized.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewWillCollapse:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewWillCollapse:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewDidCollapse:</TokenIdentifier>
+			<Abstract type="html">Sent after ad content is collaped if expanded or resized.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewDidCollapse:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewDidCollapse:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewWillLeaveApplication:</TokenIdentifier>
+			<Abstract type="html">Sent before the ad opens a URL that invokes another application (ex: Safari or App Store).</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewWillLeaveApplication:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewWillLeaveApplication:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldLogEvent:ofType:</TokenIdentifier>
+			<Abstract type="html">Sent when the ad view is about to log an event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdView:(MASTAdView *)adView shouldLogEvent:(NSString *)event ofType:(MASTAdViewLogEventType)type</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>event</Name>
+					<Abstract type="html">The log event to log.</Abstract>
+				</Parameter><Parameter>
+					<Name>type</Name>
+					<Abstract type="html">The event type.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES Log the event to NSLog().NO Omit logging the event to NSLog().</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdView:shouldLogEvent:ofType:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewSupportsSMS:</TokenIdentifier>
+			<Abstract type="html">Sent to allow developers to override SMS support.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdViewSupportsSMS:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Informs richmedia ads that SMS is not supported.YES Informs richmedia ads that SMS is supported.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewSupportsSMS:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewSupportsPhone:</TokenIdentifier>
+			<Abstract type="html">Sent to allow developers to override phone support.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdViewSupportsPhone:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Informs richmedia ads that phone calls is not supported.YES Informs richmedia ads that phone calls is supported.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewSupportsPhone:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewSupportsCalendar:</TokenIdentifier>
+			<Abstract type="html">Sent to allow developers to override calendar support.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldSaveCalendarEvent:inEventStore:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (BOOL)MASTAdViewSupportsCalendar:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Informs richmedia ads that calendar access is not supported.YES Informs richmedia ads that calendar access is supported.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewSupportsCalendar:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewSupportsStorePicture:</TokenIdentifier>
+			<Abstract type="html">Sent to allow developers to override picture storing support.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldSavePhotoToCameraRoll:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (BOOL)MASTAdViewSupportsStorePicture:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Informs richmedia ads that storing pictures is not supported.YES Informs richmedia ads that storing pictures is supported.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewSupportsStorePicture:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:didReceiveThirdPartyRequest:withParams:</TokenIdentifier>
+			<Abstract type="html">Sent when the ad server receives a third party ad request from the ad network.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdView:(MASTAdView *)adView didReceiveThirdPartyRequest:(NSDictionary *)properties withParams:(NSDictionary *)params</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>properties</Name>
+					<Abstract type="html">Properties of the request.</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">Params for the third party SDK.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdView:didReceiveThirdPartyRequest:withParams:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldPlayVideo:</TokenIdentifier>
+			<Abstract type="html">Sent when an ad desires to play a video in an external player.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdView:(MASTAdView *)adView shouldPlayVideo:(NSString *)videoURL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>videoURL</Name>
+					<Abstract type="html">The URL string of the video to play.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Do not open the URL and play the video.YES Invoke UIApplication openURL: to play the video.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdView:shouldPlayVideo:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldSaveCalendarEvent:inEventStore:</TokenIdentifier>
+			<Abstract type="html">Sent when a richmedia ad attempts to create a new calendar entry.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdView:(MASTAdView *)adView shouldSaveCalendarEvent:(EKEvent *)event inEventStore:(EKEventStore *)eventStore</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>event</Name>
+					<Abstract type="html">The event to save.</Abstract>
+				</Parameter><Parameter>
+					<Name>eventStore</Name>
+					<Abstract type="html">the store to save the event too.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Do not attempt to add the calendar event.YES Present the calendar event editor to the user to allow them to edit and save or cancel the event.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdView:shouldSaveCalendarEvent:inEventStore:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:shouldSavePhotoToCameraRoll:</TokenIdentifier>
+			<Abstract type="html">Sent when a richmedia ad attempts to save a picture to the camera roll.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)MASTAdView:(MASTAdView *)adView shouldSavePhotoToCameraRoll:(UIImage *)image</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>image</Name>
+					<Abstract type="html">The image to save.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NO Do not save the image to the camera roll.YES Attempt to save the image to the camera roll.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdView:shouldSavePhotoToCameraRoll:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdView:didProcessRichmediaRequest:</TokenIdentifier>
+			<Abstract type="html">Sent after the SDK process a richmedia event.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdView:(MASTAdView *)adView didProcessRichmediaRequest:(NSURLRequest *)event</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter><Parameter>
+					<Name>event</Name>
+					<Abstract type="html">The NSURLRequest containing the event request.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdView:didProcessRichmediaRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewPresentationController:</TokenIdentifier>
+			<Abstract type="html">Sent to allow the application to override the controller used to present modal controllers.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (UIViewController *)MASTAdViewPresentationController:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">UIViewController to use as the presenting view controller for any SDK modal view controller.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewPresentationController:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
