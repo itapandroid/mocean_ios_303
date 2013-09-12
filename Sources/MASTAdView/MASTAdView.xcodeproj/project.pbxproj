@@ -56,6 +56,7 @@
 		C5ACCB52160CED380018E0AD /* MASTMoceanAdDescriptor.h in Copy Files */ = {isa = PBXBuildFile; fileRef = C5ACCABD160CB2A60018E0AD /* MASTMoceanAdDescriptor.h */; };
 		C5ACCB7F1610EDFF0018E0AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACCB7E1610EDFF0018E0AD /* CoreGraphics.framework */; };
 		C5D30D79161A186100CA45A3 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D30D78161A186100CA45A3 /* EventKitUI.framework */; };
+		C5DF9E3317723E2C00A5143B /* MASTURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DF9E3217723E2C00A5143B /* MASTURLProtocol.m */; };
 		C5E1DB9D1635A252007F4959 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E1DB9C1635A252007F4959 /* ImageIO.framework */; };
 		C5E1DBA21635C2F2007F4959 /* UIImageView+MASTAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E1DBA11635C2F2007F4959 /* UIImageView+MASTAdView.m */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,8 @@
 		C5ACCB9C1611E2980018E0AD /* MASTBrowserForwardPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTBrowserForwardPNG.h; sourceTree = "<group>"; };
 		C5ACCB9D1611E2A30018E0AD /* MASTCloseButtonPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTCloseButtonPNG.h; sourceTree = "<group>"; };
 		C5D30D78161A186100CA45A3 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		C5DF9E3117723E2C00A5143B /* MASTURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTURLProtocol.h; sourceTree = "<group>"; };
+		C5DF9E3217723E2C00A5143B /* MASTURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASTURLProtocol.m; sourceTree = "<group>"; };
 		C5E1DB9C1635A252007F4959 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C5E1DBA01635C2F2007F4959 /* UIImageView+MASTAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MASTAdView.h"; sourceTree = "<group>"; };
 		C5E1DBA11635C2F2007F4959 /* UIImageView+MASTAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MASTAdView.m"; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				C5FE826B169B4BF900FEDEB6 /* MASTConstants.h */,
 				C5ACCAAB160CA4FF0018E0AD /* MASTAdView.h */,
 				C5ACCAAD160CA4FF0018E0AD /* MASTAdView.m */,
+				C5DF9E3117723E2C00A5143B /* MASTURLProtocol.h */,
+				C5DF9E3217723E2C00A5143B /* MASTURLProtocol.m */,
 				C5ACCAB7160CB2A60018E0AD /* MASTAdBrowser.h */,
 				C5ACCAB8160CB2A60018E0AD /* MASTAdBrowser.m */,
 				C5ACCAB9160CB2A60018E0AD /* MASTAdTracking.h */,
@@ -326,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd $SRCROOT/$TARGET_NAME\nxxd -i MASTMRAIDController.js MASTMRAIDControllerJS.h\nxxd -i MASTCloseButton.png MASTCloseButtonPNG.h\nxxd -i MASTBrowserBack.png MASTBrowserBackPNG.h\nxxd -i MASTBrowserForward.png MASTBrowserForwardPNG.h\n";
+			shellScript = "cd \"$SRCROOT/$TARGET_NAME\"\nxxd -i MASTMRAIDController.js MASTMRAIDControllerJS.h\nxxd -i MASTCloseButton.png MASTCloseButtonPNG.h\nxxd -i MASTBrowserBack.png MASTBrowserBackPNG.h\nxxd -i MASTBrowserForward.png MASTBrowserForwardPNG.h\n";
 			showEnvVarsInLog = 0;
 		};
 		C5ACCBA21611F4FA0018E0AD /* ShellScript */ = {
@@ -379,6 +384,7 @@
 				C5ACCADF160CB2A60018E0AD /* UIWebView+MASTAdView.m in Sources */,
 				C5E1DBA21635C2F2007F4959 /* UIImageView+MASTAdView.m in Sources */,
 				C52AE2581694CCB8004FEB5F /* MASTModalViewController.m in Sources */,
+				C5DF9E3317723E2C00A5143B /* MASTURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -182,6 +182,34 @@ typedef enum
 - (void)MASTAdViewDidCollapse:(MASTAdView*)adView;
 
 
+/** Sent before the internal browser is opened.
+ 
+ @param adView The MASTAdView instance sending the message.
+ */
+- (void)MASTAdViewInternalBrowserWillOpen:(MASTAdView*)adView;
+
+
+/** Sent after the internal browser is opened.
+ 
+ @param adView The MASTAdView instance sending the message.
+ */
+- (void)MASTAdViewInternalBrowserDidOpen:(MASTAdView*)adView;
+
+
+/** Sent before the internal browser is closed.
+ 
+ @param adView The MASTAdView instance sending the message.
+ */
+- (void)MASTAdViewInternalBrowserWillClose:(MASTAdView*)adView;
+
+
+/** Sent after the internal browser is closed.
+ 
+ @param adView The MASTAdView instance sending the message.
+ */
+- (void)MASTAdViewInternalBrowserDidClose:(MASTAdView*)adView;
+
+
 /** Sent before the ad opens a URL that invokes another application (ex: Safari or App Store).
  
  @param adView The MASTAdView instance sending the message.
@@ -356,6 +384,26 @@ typedef enum
  */
 - (UIViewController*)MASTAdViewPresentationController:(MASTAdView*)adView;
 
+
+/** Sent to allow the application to override the superview used for ad resizing and visibility.
+ 
+ The supplied view MUST be a superview in the hierarchy to the MASTAdView instance.
+ 
+ The SDK by default will attempt to find a suitable default using the MASTAdView instance's window's
+ rootViewController view, the application's keyWindow rootViewController's view and finally the
+ MASTAdView's superview.
+ 
+ Note: Application's SHOULD have a rootViewController set for the application window but the iOS SDK
+ will allow an application to run without one.  If the application can not set up the rootViewController
+ as expected then this method MUST be implemented to return a view controller that can be used for 
+ resizing.  Without one set the resize feature may not work correctly.
+ 
+ @param adView The MASTAdView instance sending the message.
+ @return UIView to use as the superview when placing the resize view container.
+ */
+- (UIView*)MASTAdViewResizeSuperview:(MASTAdView*)adView;
+
+
 @end
 
 
@@ -372,6 +420,17 @@ typedef enum
  /** Returns the MASTAdView SDK's version.
  */
 + (NSString*)version;
+
+
+/** Unregisters the protocol class used to intercept the MRAID bridge request
+ from rich media ads.
+ 
+ Note: The registered NSURLProtocol class used by the SDK only intercepts requests
+ for "mraid.js" from a UIWebView.
+ 
+ @see [NSURLProtocol](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSURLProtocol_Class/Reference/Reference.html) for any possible impact to the application.
+ */
++ (void)unregisterProtocolClass;
 
 
 ///---------------------------------------------------------------------------------------
@@ -416,10 +475,6 @@ typedef enum
 /// @name Required configuration
 ///---------------------------------------------------------------------------------------
 
-/** Specifies the site for the ad network.
- */
-@property (nonatomic, assign) NSInteger site;
-
 /** Specifies the zone for the ad network.
  */
 @property (nonatomic, assign) NSInteger zone;
@@ -449,8 +504,21 @@ typedef enum
 
 
 /** Set to enable the use of the internal browser for opening ad content.  Defaults to `NO`.
+ 
+ @see isInternalBrowserOpen
+ @see [MASTAdViewDelegate MASTAdViewInternalBrowserWillOpen:]
+ @see [MASTAdViewDelegate MASTAdViewInternalBrowserDidOpen:]
+ @see [MASTAdViewDelegate MASTAdViewInternalBrowserWillClose:]
+ @see [MASTAdViewDelegate MASTAdViewInternalBrowserDidClose:]
  */
 @property (nonatomic, assign) BOOL useInternalBrowser;
+
+
+/** Returns the status of the internal browser.
+ 
+ @see useInternalBrowser
+ */
+@property (nonatomic, readonly) BOOL isInternalBrowserOpen;
 
 
 /** Sets the MASTAdViewDelegate delegate receiever for the ad view.
@@ -465,20 +533,35 @@ typedef enum
 /// @name Updating and resetting ad content
 ///---------------------------------------------------------------------------------------
 
-/** Issues an immediate ad update and cancles any existing ad update.
+/** Issues an update request.  The request is deferred until user action is completed.
  
- If [MASTAdViewDelegate MASTAdViewSupportsCalendar:] is implemented by the delegate then 
- this message will determine if a request to the user for access to the calendar is needed.
- If so, the instance will request access from the user.  Developers desiring to control when
- this request occurs can do so prior to calling update.  Refer to iOS EKEventStore
- documentation for more information.
- 
+ @see update:
  */
 - (void)update;
 
 
-/** Issues an immediate ad update and cancels any pending ad update.
- Will automatically update every interval seconds.
+/** Issues an update.
+ 
+ Resets any interval update from updateWithTimeInterval:.
+ 
+ The update will be deferred if the user is interacting with the ad instance.  This can 
+ include the internal browser being open or a rich media ad in an expanded or resized state.
+ If deferred the update will resume when the interaction is completed.  Specifying YES to
+ the force property will close any user interaction and perform the update immediately.
+ 
+ If [MASTAdViewDelegate MASTAdViewSupportsCalendar:] is implemented by the delegate then
+ this message will determine if a request to the user for access to the calendar is needed.
+ If so, the instance will request access from the user.  Developers desiring to control when
+ this request occurs can do so prior to calling update.  Refer to iOS EKEventStore
+ documentation for more information.
+
+ @param force Set to `YES` to force an update regardless of current ad status/interaction.
+ */
+- (void)update:(BOOL)force;
+
+
+/** Issues an update request that will be deferred if the ad is currently being interacted with.
+ Will automatically update every interval seconds (can vary depending on user interaction).
  
  If [MASTAdViewDelegate MASTAdViewSupportsCalendar:] is implemented by the delegate then
  this message will determine if a request to the user for access to the calendar is needed.
@@ -524,7 +607,11 @@ typedef enum
  -Collapses any expanded or resized richmedia ads.
  -Closes interstitial.
  
+ Cancels any deferred update.
+ 
  Unlike reset, it does not reset the instance to it's default state.
+ 
+ @see update:
  */
 - (void)removeContent;
 
@@ -700,7 +787,7 @@ typedef enum
 ///---------------------------------------------------------------------------------------
 
 
-/** Instructs the ad server to return test ads for the configured site/zone.
+/** Instructs the ad server to return test ads for the configured zone.
  
  @warning This should never be set to `YES` for application releases.
  */

@@ -51,7 +51,6 @@
     }
     
     MASTSAdConfigPrompt* prompt = [[[MASTSAdConfigPrompt alloc] initWithDelegate:self
-                                                                            site:adViewToConfigure.site
                                                                             zone:adViewToConfigure.zone] autorelease];
     // use the tag to pass the top/bottom notion to the prompt handler
     prompt.tag = seg.selectedSegmentIndex;
@@ -79,6 +78,7 @@
     self.bottomAdView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | 
         UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     self.bottomAdView.backgroundColor = self.adView.backgroundColor;
+    self.bottomAdView.logLevel = MASTAdViewLogEventTypeDebug;
     [self.view addSubview:self.bottomAdView];
 }
 
@@ -86,14 +86,10 @@
 {
     [super viewDidLoad];
     
-    NSInteger topSite = 19829;
     NSInteger topZone = 102238;
-    NSInteger bottomSite = 19829;
     NSInteger bottomZone = 88269;
     
-    super.adView.site = topSite;
     super.adView.zone = topZone;
-    self.bottomAdView.site = bottomSite;
     self.bottomAdView.zone = bottomZone;
     
     super.adView.backgroundColor = [UIColor clearColor];
@@ -113,15 +109,14 @@
 
 #pragma mark -
 
-- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone
+- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithZone:(NSInteger)zone
 {
     if (prompt.tag == 0)
     {
-        [super configPrompt:prompt refreshWithSite:site zone:zone];
+        [super configPrompt:prompt refreshWithZone:zone];
         return;
     }
-    
-    self.bottomAdView.site = site;
+
     self.bottomAdView.zone = zone;
     
     [self.bottomAdView update];

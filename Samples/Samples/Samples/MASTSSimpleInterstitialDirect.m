@@ -28,7 +28,6 @@
 - (void)refresh:(id)sender
 {
     MASTSAdConfigPrompt* prompt = [[[MASTSAdConfigPrompt alloc] initWithDelegate:self
-                                                                            site:self.interstitialAdView.site
                                                                             zone:self.interstitialAdView.zone] autorelease];
     [prompt show];
 }
@@ -63,9 +62,9 @@
     {
         self.interstitialAdView = [[[MASTAdView alloc] initInterstitial] autorelease];
         
-        self.interstitialAdView.site = 19829;
         self.interstitialAdView.zone = 88269;
         
+        self.interstitialAdView.logLevel = MASTAdViewLogEventTypeDebug;
         self.interstitialAdView.delegate = self;
         [self.interstitialAdView showCloseButton:YES afterDelay:3];
         
@@ -80,9 +79,8 @@
 
 #pragma mark -
 
-- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone
+- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithZone:(NSInteger)zone
 {
-    self.interstitialAdView.site = site;
     self.interstitialAdView.zone = zone;
     
     // Since the UIAlertView seems to nil out the keyWindow used by the SDK, must "wait" for the
@@ -93,7 +91,12 @@
     // Applications should generally not have to deal with this since most interstitials will be
     // sourced by view transitions.  This is here simply becuase Samples uses a UIAlertView to
     // manually refresh ads for sample purposes.
-    [self.interstitialAdView performSelector:@selector(update) withObject:nil afterDelay:1];
+    //
+    //[self.interstitialAdView performSelector:@selector(update) withObject:nil afterDelay:1];
+    
+    // The above would be necessary prior to MAST SDK 3.1.  It may still be possible on some
+    // applications to get into the same situation so it's preserved in comments for reference.
+    [self.interstitialAdView update];
 }
 
 #pragma mark -

@@ -200,6 +200,70 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillOpen:</TokenIdentifier>
+			<Abstract type="html">Sent before the internal browser is opened.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewInternalBrowserWillOpen:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewInternalBrowserWillOpen:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidOpen:</TokenIdentifier>
+			<Abstract type="html">Sent after the internal browser is opened.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewInternalBrowserDidOpen:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewInternalBrowserDidOpen:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillClose:</TokenIdentifier>
+			<Abstract type="html">Sent before the internal browser is closed.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewInternalBrowserWillClose:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewInternalBrowserWillClose:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidClose:</TokenIdentifier>
+			<Abstract type="html">Sent after the internal browser is closed.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)MASTAdViewInternalBrowserDidClose:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/MASTAdViewInternalBrowserDidClose:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewWillLeaveApplication:</TokenIdentifier>
 			<Abstract type="html">Sent before the ad opens a URL that invokes another application (ex: Safari or App Store).</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
@@ -426,6 +490,22 @@
 			</Parameters>
 			<ReturnValue><Abstract type="html">UIViewController to use as the presenting view controller for any SDK modal view controller.</Abstract></ReturnValue>
 			<Anchor>//api/name/MASTAdViewPresentationController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewResizeSuperview:</TokenIdentifier>
+			<Abstract type="html">Sent to allow the application to override the superview used for ad resizing and visibility.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (UIView *)MASTAdViewResizeSuperview:(MASTAdView *)adView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>adView</Name>
+					<Abstract type="html">The MASTAdView instance sending the message.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">UIView to use as the superview when placing the resize view container.</Abstract></ReturnValue>
+			<Anchor>//api/name/MASTAdViewResizeSuperview:</Anchor>
 		</Token>
 		
 	</File>

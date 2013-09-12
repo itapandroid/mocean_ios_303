@@ -46,8 +46,7 @@
         
         // Set some obvious background color (MASTAdView is a UIView)
         self.adView.backgroundColor = [UIColor darkGrayColor];
-        
-        self.adView.site = 19829;
+
         self.adView.zone = 98463;
         
         self.updateAdView = YES;

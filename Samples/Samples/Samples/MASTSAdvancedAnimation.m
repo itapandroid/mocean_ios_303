@@ -31,10 +31,8 @@
 {
     [super viewDidLoad];
     
-    NSInteger site = 19829;
     NSInteger zone = 88269;
     
-    super.adView.site = site;
     super.adView.zone = zone;
 }
 
@@ -76,10 +74,10 @@
 
 #pragma mark -
 
-- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone
+- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithZone:(NSInteger)zone
 {
     [self animateHideAd];
-    [super configPrompt:prompt refreshWithSite:site zone:zone];
+    [super configPrompt:prompt refreshWithZone:zone];
 }
 
 @end

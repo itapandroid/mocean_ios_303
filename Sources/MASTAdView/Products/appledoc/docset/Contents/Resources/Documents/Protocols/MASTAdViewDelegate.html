@@ -74,7 +74,17 @@
 	
 	<option value="//api/name/MASTAdViewDidRecieveAd:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewDidRecieveAd:</option>
 	
+	<option value="//api/name/MASTAdViewInternalBrowserDidClose:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewInternalBrowserDidClose:</option>
+	
+	<option value="//api/name/MASTAdViewInternalBrowserDidOpen:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewInternalBrowserDidOpen:</option>
+	
+	<option value="//api/name/MASTAdViewInternalBrowserWillClose:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewInternalBrowserWillClose:</option>
+	
+	<option value="//api/name/MASTAdViewInternalBrowserWillOpen:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewInternalBrowserWillOpen:</option>
+	
 	<option value="//api/name/MASTAdViewPresentationController:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewPresentationController:</option>
+	
+	<option value="//api/name/MASTAdViewResizeSuperview:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewResizeSuperview:</option>
 	
 	<option value="//api/name/MASTAdViewSupportsCalendar:">&nbsp;&nbsp;&nbsp;&nbsp;- MASTAdViewSupportsCalendar:</option>
 	
@@ -148,7 +158,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewDidRecieveAd:">MASTAdViewDidRecieveAd:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewInternalBrowserDidClose:">MASTAdViewInternalBrowserDidClose:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewInternalBrowserDidOpen:">MASTAdViewInternalBrowserDidOpen:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewInternalBrowserWillClose:">MASTAdViewInternalBrowserWillClose:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewInternalBrowserWillOpen:">MASTAdViewInternalBrowserWillOpen:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewPresentationController:">MASTAdViewPresentationController:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewResizeSuperview:">MASTAdViewResizeSuperview:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/MASTAdViewSupportsCalendar:">MASTAdViewSupportsCalendar:</a></span></li>
 	
@@ -303,6 +323,34 @@ prevent and UI delays for the user.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/MASTAdViewInternalBrowserWillOpen:">&ndash;&nbsp;MASTAdViewInternalBrowserWillOpen:</a></code>
+		<span class="tooltip"><p>Sent before the internal browser is opened.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/MASTAdViewInternalBrowserDidOpen:">&ndash;&nbsp;MASTAdViewInternalBrowserDidOpen:</a></code>
+		<span class="tooltip"><p>Sent after the internal browser is opened.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/MASTAdViewInternalBrowserWillClose:">&ndash;&nbsp;MASTAdViewInternalBrowserWillClose:</a></code>
+		<span class="tooltip"><p>Sent before the internal browser is closed.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/MASTAdViewInternalBrowserDidClose:">&ndash;&nbsp;MASTAdViewInternalBrowserDidClose:</a></code>
+		<span class="tooltip"><p>Sent after the internal browser is closed.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/MASTAdViewWillLeaveApplication:">&ndash;&nbsp;MASTAdViewWillLeaveApplication:</a></code>
 		<span class="tooltip"><p>Sent before the ad opens a URL that invokes another application (ex: Safari or App Store).</p></span>
 	</span>
@@ -382,6 +430,13 @@ prevent and UI delays for the user.</p>
 	<span class="tooltip">
 		<code><a href="#//api/name/MASTAdViewPresentationController:">&ndash;&nbsp;MASTAdViewPresentationController:</a></code>
 		<span class="tooltip"><p>Sent to allow the application to override the controller used to present modal controllers.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/MASTAdViewResizeSuperview:">&ndash;&nbsp;MASTAdViewResizeSuperview:</a></code>
+		<span class="tooltip"><p>Sent to allow the application to override the superview used for ad resizing and visibility.</p></span>
 	</span>
 	
 	
@@ -1312,6 +1367,210 @@ expanded ad content.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/MASTAdViewInternalBrowserDidClose:" title="MASTAdViewInternalBrowserDidClose:"></a>
+	<h3 class="subsubtitle method-title">MASTAdViewInternalBrowserDidClose:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent after the internal browser is closed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)MASTAdViewInternalBrowserDidClose:(MASTAdView *)<em>adView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adView</em></dt>
+			<dd><p>The <a href="../Classes/MASTAdView.html">MASTAdView</a> instance sending the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent after the internal browser is closed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/MASTAdViewInternalBrowserDidOpen:" title="MASTAdViewInternalBrowserDidOpen:"></a>
+	<h3 class="subsubtitle method-title">MASTAdViewInternalBrowserDidOpen:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent after the internal browser is opened.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)MASTAdViewInternalBrowserDidOpen:(MASTAdView *)<em>adView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adView</em></dt>
+			<dd><p>The <a href="../Classes/MASTAdView.html">MASTAdView</a> instance sending the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent after the internal browser is opened.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/MASTAdViewInternalBrowserWillClose:" title="MASTAdViewInternalBrowserWillClose:"></a>
+	<h3 class="subsubtitle method-title">MASTAdViewInternalBrowserWillClose:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent before the internal browser is closed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)MASTAdViewInternalBrowserWillClose:(MASTAdView *)<em>adView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adView</em></dt>
+			<dd><p>The <a href="../Classes/MASTAdView.html">MASTAdView</a> instance sending the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent before the internal browser is closed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/MASTAdViewInternalBrowserWillOpen:" title="MASTAdViewInternalBrowserWillOpen:"></a>
+	<h3 class="subsubtitle method-title">MASTAdViewInternalBrowserWillOpen:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent before the internal browser is opened.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)MASTAdViewInternalBrowserWillOpen:(MASTAdView *)<em>adView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adView</em></dt>
+			<dd><p>The <a href="../Classes/MASTAdView.html">MASTAdView</a> instance sending the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent before the internal browser is opened.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/MASTAdViewPresentationController:" title="MASTAdViewPresentationController:"></a>
 	<h3 class="subsubtitle method-title">MASTAdViewPresentationController:</h3>
 	
@@ -1362,6 +1621,73 @@ to run without one.  If the application can not set up the rootViewController as
 method MUST be implemented to return a view controller that can be used to present modal dialogs.
 Without one certain SDK features will not work including showInterstitial, richmedia expand and
 the internal browser.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/MASTAdViewResizeSuperview:" title="MASTAdViewResizeSuperview:"></a>
+	<h3 class="subsubtitle method-title">MASTAdViewResizeSuperview:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sent to allow the application to override the superview used for ad resizing and visibility.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)MASTAdViewResizeSuperview:(MASTAdView *)<em>adView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adView</em></dt>
+			<dd><p>The <a href="../Classes/MASTAdView.html">MASTAdView</a> instance sending the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>UIView to use as the superview when placing the resize view container.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sent to allow the application to override the superview used for ad resizing and visibility.</p>
+
+<p>The supplied view MUST be a superview in the hierarchy to the <a href="../Classes/MASTAdView.html">MASTAdView</a> instance.</p>
+
+<p>The SDK by default will attempt to find a suitable default using the <a href="../Classes/MASTAdView.html">MASTAdView</a> instance&rsquo;s window&rsquo;s
+rootViewController view, the application&rsquo;s keyWindow rootViewController&rsquo;s view and finally the
+MASTAdView&rsquo;s superview.</p>
+
+<p>Note: Application&rsquo;s SHOULD have a rootViewController set for the application window but the iOS SDK
+will allow an application to run without one.  If the application can not set up the rootViewController
+as expected then this method MUST be implemented to return a view controller that can be used for
+resizing.  Without one set the resize feature may not work correctly.</p>
 	</div>
 	
 	
@@ -1809,7 +2135,7 @@ expanded ad content.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mocean Mobile. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Mocean Mobile. All rights reserved. (Last updated: 2013-09-03)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -23,6 +23,18 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MASTAdView/unregisterProtocolClass</TokenIdentifier>
+			<Abstract type="html">Unregisters the protocol class used to intercept the MRAID bridge request
+from rich media ads.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>+ (void)unregisterProtocolClass</Declaration>
+			
+			
+			<Anchor>//api/name/unregisterProtocolClass</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/initWithFrame:</TokenIdentifier>
 			<Abstract type="html">Initilizes an inline instance of the ad view.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
@@ -88,28 +100,6 @@
 			
 			
 			<Anchor>//api/name/placementType</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setSite:</TokenIdentifier>
-			<Abstract type="html">Specifies the site for the ad network.</Abstract>
-			<DeclaredIn>MASTAdView.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) NSInteger site</Declaration>
-			
-			
-			<Anchor>//api/name/site</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/site</TokenIdentifier>
-			<Abstract type="html">Specifies the site for the ad network.</Abstract>
-			<DeclaredIn>MASTAdView.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) NSInteger site</Declaration>
-			
-			
-			<Anchor>//api/name/site</Anchor>
 		</Token>
 		
 		<Token>
@@ -183,6 +173,15 @@
 			<Abstract type="html">Set to enable the use of the internal browser for opening ad content.  Defaults to NO.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/isInternalBrowserOpen</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillOpen:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidOpen:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillClose:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidClose:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, assign) BOOL useInternalBrowser</Declaration>
 			
 			
@@ -194,10 +193,51 @@
 			<Abstract type="html">Set to enable the use of the internal browser for opening ad content.  Defaults to NO.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/isInternalBrowserOpen</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillOpen:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidOpen:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserWillClose:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/intfm/MASTAdViewDelegate/MASTAdViewInternalBrowserDidClose:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, assign) BOOL useInternalBrowser</Declaration>
 			
 			
 			<Anchor>//api/name/useInternalBrowser</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setIsInternalBrowserOpen:</TokenIdentifier>
+			<Abstract type="html">Returns the status of the internal browser.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/useInternalBrowser</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, readonly) BOOL isInternalBrowserOpen</Declaration>
+			
+			
+			<Anchor>//api/name/isInternalBrowserOpen</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/isInternalBrowserOpen</TokenIdentifier>
+			<Abstract type="html">Returns the status of the internal browser.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/useInternalBrowser</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, readonly) BOOL isInternalBrowserOpen</Declaration>
+			
+			
+			<Anchor>//api/name/isInternalBrowserOpen</Anchor>
 		</Token>
 		
 		<Token>
@@ -224,9 +264,14 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/update</TokenIdentifier>
-			<Abstract type="html">Issues an immediate ad update and cancles any existing ad update.</Abstract>
+			<Abstract type="html">Issues an update request.  The request is deferred until user action is completed.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/update:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (void)update</Declaration>
 			
 			
@@ -234,9 +279,25 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/update:</TokenIdentifier>
+			<Abstract type="html">Issues an update.</Abstract>
+			<DeclaredIn>MASTAdView.h</DeclaredIn>			
+			
+			<Declaration>- (void)update:(BOOL)force</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>force</Name>
+					<Abstract type="html">Set to YES to force an update regardless of current ad status/interaction.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/update:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/updateWithTimeInterval:</TokenIdentifier>
-			<Abstract type="html">Issues an immediate ad update and cancels any pending ad update.
-Will automatically update every interval seconds.</Abstract>
+			<Abstract type="html">Issues an update request that will be deferred if the ad is currently being interacted with.
+Will automatically update every interval seconds (can vary depending on user interaction).</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
 	<RelatedTokens>
@@ -271,6 +332,11 @@ Will automatically update every interval seconds.</Abstract>
 			<Abstract type="html">Removes any displayed ad content and any associated state.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/update:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (void)removeContent</Declaration>
 			
 			
@@ -519,7 +585,7 @@ desiredAccuracy parameters are applied.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/MASTAdView/setTest:</TokenIdentifier>
-			<Abstract type="html">Instructs the ad server to return test ads for the configured site/zone.</Abstract>
+			<Abstract type="html">Instructs the ad server to return test ads for the configured zone.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
 			<Declaration>@property (nonatomic, assign) BOOL test</Declaration>
@@ -530,7 +596,7 @@ desiredAccuracy parameters are applied.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/MASTAdView/test</TokenIdentifier>
-			<Abstract type="html">Instructs the ad server to return test ads for the configured site/zone.</Abstract>
+			<Abstract type="html">Instructs the ad server to return test ads for the configured zone.</Abstract>
 			<DeclaredIn>MASTAdView.h</DeclaredIn>			
 			
 			<Declaration>@property (nonatomic, assign) BOOL test</Declaration>

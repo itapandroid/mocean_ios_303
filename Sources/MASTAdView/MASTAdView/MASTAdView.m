@@ -8,6 +8,7 @@
 #import "MASTDefaults.h"
 #import "MASTConstants.h"
 #import "MASTAdView.h"
+#import "MASTURLProtocol.h"
 #import "UIWebView+MASTAdView.h"
 #import "NSDictionary+MASTAdView.h"
 #import "NSDate+MASTAdView.h"
@@ -20,7 +21,6 @@
 #import "MASTAdBrowser.h"
 #import "MASTModalViewController.h"
 
-#import "MASTMRAIDControllerJS.h"
 #import "MASTCloseButtonPNG.h"
 
 #import <objc/runtime.h>
@@ -28,7 +28,7 @@
 
 
 static NSString* AdViewUserAgent = nil;
-
+static BOOL registerProtocolClass = YES;
 
 @interface MASTAdView () <UIGestureRecognizerDelegate, UIWebViewDelegate, MASTMRAIDBridgeDelegate,
     MASTAdBrowserDelegate, MASTModalViewControllerDelegate, CLLocationManagerDelegate, EKEventEditViewDelegate>
@@ -42,6 +42,9 @@ static NSString* AdViewUserAgent = nil;
 
 // Set to skip the next timer update
 @property (nonatomic, assign) BOOL skipNextUpdateTick;
+
+// Set to indicate an update should occur after user interaction is done.
+@property (nonatomic, assign) BOOL deferredUpdate;
 
 // Interstitial delay timer
 @property (nonatomic, strong) NSTimer* interstitialTimer;
@@ -69,6 +72,9 @@ static NSString* AdViewUserAgent = nil;
 
 // Used to render interstitial, expand and internal browser.
 @property (nonatomic, strong) MASTModalViewController* modalViewController;
+
+// If for some reason the modal needs to be dismissed before the presentation is complete, this flag is set.
+@property (nonatomic, assign) BOOL modalDismissAfterPresent;
 
 // Used to re-expand the ad if a calendar event is  created.
 @property (nonatomic, assign) BOOL calendarReExpand;
@@ -112,19 +118,19 @@ static NSString* AdViewUserAgent = nil;
 @implementation MASTAdView
 
 @synthesize labelView, imageView, expandView, resizeView;
-@synthesize site, zone, useInternalBrowser, placementType;
+@synthesize zone, useInternalBrowser, placementType;
 @synthesize adServerURL, adRequestParameters;
 @synthesize test, logLevel;
 @synthesize delegate;
 @synthesize connection, dataBuffer, webView;
-@synthesize updateTimer, skipNextUpdateTick, interstitialTimer;
+@synthesize updateTimer, skipNextUpdateTick, deferredUpdate, interstitialTimer;
 @synthesize closeButtonTimeInterval, closeButtonTimer, closeButton;
 @synthesize tapGesture;
 @synthesize expandCloseControl, resizeCloseControl;
 @synthesize adDescriptor;
 @synthesize mraidBridge;
 @synthesize adBrowser;
-@synthesize modalViewController, calendarReExpand, statusBarHidden;
+@synthesize modalViewController, modalDismissAfterPresent, calendarReExpand, statusBarHidden;
 @synthesize isExpandedURL;
 @synthesize expandedAdView;
 @synthesize invokeTracking;
@@ -137,6 +143,13 @@ static NSString* AdViewUserAgent = nil;
 + (NSString*)version
 {
     return MAST_DEFAULT_VERSION;
+}
+
++ (void)unregisterProtocolClass
+{
+    registerProtocolClass = YES;
+
+    [NSURLProtocol unregisterClass:[MASTURLProtocol class]];
 }
 
 #pragma mark -
@@ -154,6 +167,7 @@ static NSString* AdViewUserAgent = nil;
 
     [self.webView setDelegate:nil];
     [self.webView stopLoading];
+    self.webView = nil;
     
     [self setLocationDetectionEnabled:NO];
 }
@@ -211,9 +225,12 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)internalUpdate
 {
+    self.deferredUpdate = NO;
+    
     // Don't update if the internal browser is up.
     if ([self adBrowserOpen])
     {
+        self.deferredUpdate = YES;
         return;
     }
     
@@ -227,19 +244,20 @@ static NSString* AdViewUserAgent = nil;
             
         case MASTMRAIDBridgeStateExpanded:
         case MASTMRAIDBridgeStateResized:
+            self.deferredUpdate = YES;
             return;
     }
     
-    if ((self.site == 0) || (self.zone == 0))
+    if (self.zone == 0)
     {
-        [self logEvent:@"Can not update without a proper site and zone."
+        [self logEvent:@"Can not update without a proper zone."
                 ofType:MASTAdViewLogEventTypeError
                   func:__func__
                   line:__LINE__];
         
         if ([self.delegate respondsToSelector:@selector(MASTAdView:didFailToReceiveAdWithError:)])
         {
-            NSError* error = [NSError errorWithDomain:@"Missing site or zone."
+            NSError* error = [NSError errorWithDomain:@"Missing zone."
                                                  code:0
                                              userInfo:nil];
             
@@ -298,7 +316,6 @@ static NSString* AdViewUserAgent = nil;
     [args setValue:[MASTAdView version] forKey:@"version"];
     [args setValue:@"1" forKey:@"count"];
     [args setValue:@"3" forKey:@"key"];
-    [args setValue:[NSString stringWithFormat:@"%d", self.site] forKey:@"site"];
     [args setValue:[NSString stringWithFormat:@"%d", self.zone] forKey:@"zone"];
     
     if (self.test)
@@ -344,18 +361,60 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)update
 {
-    [self reset];
-    
+    [self update:NO];
+}
+
+- (void)update:(BOOL)force
+{
     // If iOS 6 determine if the calendar can be used and ask user for authorization if necessary.
     [self checkCalendarAuthorizationStatus];
+
+    // Stop/reset the timer.
+    if (self.updateTimer != nil)
+    {
+        [self.updateTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+        self.updateTimer = nil;
+    }
+    
+    if (force)
+    {
+        // Close the ad browser if open.
+        if ([self adBrowserOpen])
+        {
+            [self closeAdBrowser];
+        }
+        
+        // Close interstitial if interstitial.
+        [self closeInterstitial];
+        
+        // Do non-interstitial cleanup after this.
+        if (self.placementType == MASTAdViewPlacementTypeInline)
+        {
+            // Close any expanded or resized MRAID ad.
+            switch ([self.mraidBridge state])
+            {
+                case MASTMRAIDBridgeStateLoading:
+                case MASTMRAIDBridgeStateDefault:
+                case MASTMRAIDBridgeStateHidden:
+                    break;
+                    
+                case MASTMRAIDBridgeStateExpanded:
+                case MASTMRAIDBridgeStateResized:
+                    [self mraidBridgeClose:self.mraidBridge];
+                    break;
+            }
+        }
+    }
+    
+    // Cancel any current request
+    [self.connection cancel];
+    self.connection = nil;
     
     [self internalUpdate];
 }
 
 - (void)updateWithTimeInterval:(NSTimeInterval)interval
 {
-    [self reset];
-    
     if (interval == 0)
     {
         [self update];
@@ -364,6 +423,13 @@ static NSString* AdViewUserAgent = nil;
     
     // If iOS 6 determine if the calendar can be used and ask user for authorization if necessary.
     [self checkCalendarAuthorizationStatus];
+
+    // Stop/reset the timer.
+    if (self.updateTimer != nil)
+    {
+        [self.updateTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
+        self.updateTimer = nil;
+    }
 
     self.updateTimer = [[NSTimer alloc] initWithFireDate:nil
                                                 interval:interval
@@ -377,6 +443,8 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)reset
 {
+    self.deferredUpdate = NO;
+    
     // Close the ad browser if open.
     if ([self adBrowserOpen])
     {
@@ -432,14 +500,9 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)removeContent
 {
-    [self closeInterstitial];
+    self.deferredUpdate = NO;
     
-    // Stop the interstitial timer
-    if (self.interstitialTimer != nil)
-    {
-        [self.interstitialTimer performSelectorOnMainThread:@selector(invalidate) withObject:nil waitUntilDone:YES];
-        self.interstitialTimer = nil;
-    }
+    [self closeInterstitial];
     
     // Do non-interstitial cleanup after this.
     if (self.placementType != MASTAdViewPlacementTypeInline)
@@ -464,8 +527,13 @@ static NSString* AdViewUserAgent = nil;
     [self resetWebAd];
 }
 
-- (void)restartUpdateTimer
+- (void)resumeUpdates
 {
+    if (self.deferredUpdate)
+    {
+        [self update];
+    }
+    
     if (self.updateTimer != nil)
     {
         [self.updateTimer performSelectorOnMainThread:@selector(invalidate) 
@@ -494,14 +562,12 @@ static NSString* AdViewUserAgent = nil;
     self.connection = nil;
     
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]
-                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                               timeoutInterval:MAST_DEFAULT_NETWORK_TIMEOUT];
     
-    self.dataBuffer = nil;
-    
-    self.connection = [[NSURLConnection alloc] initWithRequest:request 
-                                                      delegate:self 
-                                              startImmediately:YES];
+    [self performSelectorOnMainThread:@selector(renderMRAIDAd:)
+                           withObject:request
+                        waitUntilDone:NO];
 }
 
 #pragma mark - Interstitial
@@ -583,6 +649,11 @@ static NSString* AdViewUserAgent = nil;
 
 #pragma mark - Internal Browser
 
+- (BOOL)isInternalBrowserOpen
+{
+    return [self adBrowserOpen];
+}
+
 - (MASTAdBrowser*)adBrowser
 {
     if (adBrowser == nil)
@@ -611,15 +682,23 @@ static NSString* AdViewUserAgent = nil;
     
     self.adBrowser.URL = url;
     
+    [self invokeDelegateSelector:@selector(MASTAdViewInternalBrowserWillOpen:)];
+    
     [self presentModalView:self.adBrowser.view];
+    
+    [self invokeDelegateSelector:@selector(MASTAdViewInternalBrowserDidOpen:)];
 }
 
 - (void)closeAdBrowser
 {
+    [self invokeDelegateSelector:@selector(MASTAdViewInternalBrowserWillClose:)];
+    
     [self dismissModalView:self.adBrowser.view animated:YES];
     self.adBrowser = nil;
 
-    [self restartUpdateTimer];
+    [self resumeUpdates];
+    
+    [self invokeDelegateSelector:@selector(MASTAdViewInternalBrowserDidClose:)];
 }
 
 - (void)MASTAdBrowser:(MASTAdBrowser *)browser didFailLoadWithError:(NSError *)error
@@ -632,7 +711,9 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)MASTAdBrowserClose:(MASTAdBrowser *)browser
 {
-    [self closeAdBrowser];
+    // Delay to workaround issues with iOS5 not implementing isBeingPresented
+    // as expected (and as-is in iOS6).
+    [self performSelector:@selector(closeAdBrowser) withObject:nil afterDelay:0.5];
 }
 
 - (void)MASTAdBrowserWillLeaveApplication:(MASTAdBrowser*)browser
@@ -641,15 +722,18 @@ static NSString* AdViewUserAgent = nil;
     
     self.skipNextUpdateTick = YES;
     
-    [self closeAdBrowser];
+    // Delay to workaround issues with iOS5 not implementing isBeingPresented
+    // as expected (and as-is in iOS6).
+    [self performSelector:@selector(closeAdBrowser) withObject:nil afterDelay:0.5];
 }
 
 #pragma mark - Gestures
 
 - (void)tapGesture:(id)sender
 {
-    // Any web based ad MUST implement it's own navigation.
-    if ((self.imageView.superview != self) &&  (self.labelView.superview != self))
+    // Taps are only handled directly for imageView and labelView based ads.
+    // Any web based ad MUST implement it's own navigation
+    if ((self.imageView.superview == nil) && (self.labelView.superview == nil))
         return;
     
     if ([[self.adDescriptor url] length] == 0)
@@ -715,12 +799,7 @@ static NSString* AdViewUserAgent = nil;
     {
         self.statusBarHidden = [[UIApplication sharedApplication] isStatusBarHidden];
         
-        UIViewController* rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-        
-        if ([self.delegate respondsToSelector:@selector(MASTAdViewPresentationController:)])
-        {
-            rootViewController = [self.delegate MASTAdViewPresentationController:self];
-        }
+        UIViewController* rootViewController = [self modalRootViewController];
         
         if (rootViewController == nil)
         {
@@ -739,7 +818,15 @@ static NSString* AdViewUserAgent = nil;
         
         if ([rootViewController respondsToSelector:@selector(presentViewController:animated:completion:)])
         {
-            [rootViewController presentViewController:self.modalViewController animated:YES completion:nil];
+            self.modalDismissAfterPresent = NO;
+            
+            [rootViewController presentViewController:self.modalViewController animated:YES completion:^()
+            {
+                if (self.modalDismissAfterPresent)
+                {
+                    [self dismissModalView:view animated:YES];
+                }
+            }];
         }
         else
         {
@@ -752,6 +839,15 @@ static NSString* AdViewUserAgent = nil;
 {
     if (self.modalViewController.view.superview == nil)
         return;
+    
+    if ([self.modalViewController respondsToSelector:@selector(isBeingPresented)])
+    {
+        if ([self.modalViewController isBeingPresented])
+        {
+            self.modalDismissAfterPresent = YES;
+            return;
+        }
+    }
     
     if ([view superview] == self.modalViewController.view)
         [view removeFromSuperview];
@@ -772,6 +868,28 @@ static NSString* AdViewUserAgent = nil;
     {
         [self.modalViewController dismissModalViewControllerAnimated:animated];
     }
+}
+
+- (UIViewController*)modalRootViewController
+{
+    UIViewController* rootViewController = [self.window rootViewController];
+    
+    if (rootViewController == nil)
+    {
+        rootViewController = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
+    }
+    
+    if (rootViewController == nil)
+    {
+        rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(MASTAdViewPresentationController:)])
+    {
+        rootViewController = [self.delegate MASTAdViewPresentationController:self];
+    }
+    
+    return rootViewController;
 }
 
 #pragma mark - MASTModalViewControllerDelegate
@@ -906,14 +1024,55 @@ static NSString* AdViewUserAgent = nil;
 
 - (UIView*)resizeViewSuperview
 {
-    UIViewController* rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    UIView* resizeViewSuperview = [[[self window] rootViewController] view];
     
-    if ([self.delegate respondsToSelector:@selector(MASTAdViewPresentationController:)])
+    if (resizeViewSuperview == nil)
     {
-        rootViewController = [self.delegate MASTAdViewPresentationController:self];
+        resizeViewSuperview = [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view];
+    }
+
+    if (resizeViewSuperview == nil)
+    {
+        resizeViewSuperview = [[[[UIApplication sharedApplication] keyWindow] rootViewController] view];
+    }
+
+    if ([self.delegate respondsToSelector:@selector(MASTAdViewRichMediaResizeSuperview:)])
+    {
+        resizeViewSuperview = [self.delegate MASTAdViewResizeSuperview:self];
     }
     
-    return [rootViewController view];
+    return resizeViewSuperview;
+}
+
+- (CGRect)resizeViewMaxRect
+{
+    CGSize screenSize = [self screenSizeIncludingStatusBar:NO];
+    CGRect maxRect = [self resizeViewSuperview].bounds;
+    
+    // Only account for the status bar size if the maxSize is the screen size.
+    // This would be the case where the resize superview is the rootViewController's
+    // view or the like.  It also works around the case where the resize superview may
+    // be this view's superview which may already account for the status bar.
+    
+    if (CGSizeEqualToSize(maxRect.size, screenSize))
+    {
+        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+        if (CGRectEqualToRect(statusBarFrame, CGRectZero) == NO)
+        {
+            if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
+            {
+                maxRect.origin.y += statusBarFrame.size.height;
+                maxRect.size.height -= statusBarFrame.size.height;
+            }
+            else
+            {
+                maxRect.origin.y += statusBarFrame.size.width;
+                maxRect.size.height -= statusBarFrame.size.width;
+            }
+        }
+    }
+    
+    return maxRect;
 }
 
 #pragma mark - Close Button
@@ -940,6 +1099,16 @@ static NSString* AdViewUserAgent = nil;
     {
         switch (self.mraidBridge.state)
         {
+            case MASTMRAIDBridgeStateDefault:
+                if (self.placementType == MASTMRAIDBridgePlacementTypeInterstitial)
+                {
+                    if (self.mraidBridge.expandProperties.useCustomClose == NO)
+                    {
+                        [self showCloseButton];
+                    }
+                }
+                break;
+                
             case MASTMRAIDBridgeStateExpanded:
                 // When expanded use the built in button or the custom one, else nothing else.
                 if (self.mraidBridge.expandProperties.useCustomClose == NO)
@@ -1212,7 +1381,7 @@ static NSString* AdViewUserAgent = nil;
         NSError* error = nil;
         
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:ad.img]
-                                                                    cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                                    cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                                                 timeoutInterval:MAST_DEFAULT_NETWORK_TIMEOUT];
         
         [request setValue:AdViewUserAgent forHTTPHeaderField:MASTUserAgentHeader];
@@ -1319,20 +1488,17 @@ static NSString* AdViewUserAgent = nil;
 #pragma mark - MRAID Ad Handling
 
 // Main thread
-- (void)renderMRAIDAd:(NSString*)mraidHtml
+- (void)renderMRAIDAd:(id)mraidFragmentOrTwoPartRequest
 {
     self.invokeTracking = NO;
     
     [self.webView stopLoading];
     
-    // TODO: Load into an in memory cache.
-    NSData* jsData = [NSData dataWithBytesNoCopy:MASTMRAIDController_js
-                                          length:MASTMRAIDController_js_len
-                                    freeWhenDone:NO];
-    
-    NSString* mraidScript = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
-    
-    NSString* htmlContent = [NSString stringWithFormat:MAST_RICHMEDIA_FORMAT, mraidScript, mraidHtml];
+    if (registerProtocolClass)
+    {
+        registerProtocolClass = NO;
+        [NSURLProtocol registerClass:[MASTURLProtocol class]];
+    }
 
     self.mraidBridge = [MASTMRAIDBridge new];
     self.mraidBridge.delegate = self;
@@ -1349,7 +1515,15 @@ static NSString* AdViewUserAgent = nil;
             break;
     }
     
-    [self.webView loadHTMLString:htmlContent baseURL:nil];
+    if (self.isExpandedURL == NO)
+    {
+        NSString* htmlContent = [NSString stringWithFormat:MAST_RICHMEDIA_FORMAT, (NSString*)mraidFragmentOrTwoPartRequest];
+        [self.webView loadHTMLString:htmlContent baseURL:nil];
+    }
+    else
+    {
+        [self.webView loadRequest:(NSURLRequest*)mraidFragmentOrTwoPartRequest];
+    }
     
     [self resetImageAd];
     [self resetTextAd];
@@ -1420,30 +1594,61 @@ static NSString* AdViewUserAgent = nil;
     [self.mraidBridge setSupported:YES forFeature:MASTMRAIDBridgeSupportsInlineVideo forWebView:wv];
 }
 
+- (void)mraidInitializeBridge:(MASTMRAIDBridge*)bridge forWebView:(UIWebView*)wv
+{
+    @synchronized (bridge)
+    {
+        if (bridge.needsInit == NO)
+            return;
+        
+        if (wv.isLoading)
+            return;
+        
+        bridge.needsInit = NO;
+    }
+    
+    [self mraidSupports:self.webView];
+    
+    MASTMRAIDBridgePlacementType mraidPlacementType = MASTMRAIDBridgePlacementTypeInline;
+    if (self.placementType == MASTAdViewPlacementTypeInterstitial)
+    {
+        mraidPlacementType = MASTMRAIDBridgePlacementTypeInterstitial;
+    }
+    [bridge setPlacementType:mraidPlacementType forWebView:self.webView];
+    
+    [self mraidUpdateLayoutForNewState:MASTMRAIDBridgeStateDefault];
+    
+    CGSize screenSize = [self screenSizeIncludingStatusBar:NO];
+    MASTMRAIDExpandProperties* expandProperties = [[MASTMRAIDExpandProperties alloc] initWithSize:screenSize];
+    [bridge setExpandProperties:expandProperties forWebView:self.webView];
+    
+    MASTMRAIDResizeProperties* resizeProperties = [MASTMRAIDResizeProperties new];
+    [bridge setResizeProperties:resizeProperties forWebView:self.webView];
+    
+    MASTMRAIDOrientationProperties* orientationProperties = [MASTMRAIDOrientationProperties new];
+    [bridge setOrientationProperties:orientationProperties forWebView:self.webView];
+    
+    if (self.isExpandedURL == NO)
+    {
+        [self.mraidBridge setState:MASTMRAIDBridgeStateDefault forWebView:self.webView];
+    }
+    else
+    {
+        [self mraidBridge:self.mraidBridge expandWithURL:nil];
+    }
+    
+    [bridge sendReadyForWebView:self.webView];
+    
+    [self prepareCloseButton];
+}
+
 - (void)mraidUpdateLayoutForNewState:(MASTMRAIDBridgeState)state
 {
     CGSize screenSize = [self screenSizeIncludingStatusBar:NO];
     CGRect defaultFrame = [self absoluteFrameForView:self];
     CGRect currentFrame = [self absoluteFrameForView:self.webView];
     
-    CGSize maxSize = CGSizeZero;
-    if ([self resizeViewSuperview] != nil)
-    {
-        maxSize = [self resizeViewSuperview].bounds.size;
-
-        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-        if (CGRectEqualToRect(statusBarFrame, CGRectZero) == NO)
-        {
-            if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
-            {
-                maxSize.height -= statusBarFrame.size.height;
-            }
-            else
-            {
-                maxSize.height -= statusBarFrame.size.width;
-            }
-        }
-    }
+    CGSize maxSize = [self resizeViewMaxRect].size;
     
     BOOL viewable = NO;
     
@@ -1496,6 +1701,13 @@ static NSString* AdViewUserAgent = nil;
 
 #pragma mark - MASTMRAIDBridgeDelegate
 
+- (void)mraidBridgeInit:(MASTMRAIDBridge *)bridge
+{
+    bridge.needsInit = YES;
+    
+    [self mraidInitializeBridge:bridge forWebView:self.webView];
+}
+
 - (void)mraidBridgeClose:(MASTMRAIDBridge*)bridge
 {
     if (self.placementType == MASTAdViewPlacementTypeInterstitial)
@@ -1530,16 +1742,17 @@ static NSString* AdViewUserAgent = nil;
             [self addSubview:self.webView];
             
             [self.webView scrollToTop];
-
-            [self mraidUpdateLayoutForNewState:MASTMRAIDBridgeStateDefault];
-            [self.mraidBridge setState:MASTMRAIDBridgeStateDefault forWebView:self.webView];
             
             [self prepareCloseButton];
-            [self restartUpdateTimer];
             
             [self dismissModalView:self.expandView animated:YES];
+            
+            [self mraidUpdateLayoutForNewState:MASTMRAIDBridgeStateDefault];
+            [self.mraidBridge setState:MASTMRAIDBridgeStateDefault forWebView:self.webView];
 
             [self invokeDelegateSelector:@selector(MASTAdViewDidCollapse:)];
+            
+            [self resumeUpdates];
 
             break;
         }
@@ -1555,13 +1768,14 @@ static NSString* AdViewUserAgent = nil;
             
             [self.webView scrollToTop];
             
+            [self prepareCloseButton];
+            
             [self mraidUpdateLayoutForNewState:MASTMRAIDBridgeStateDefault];
             [self.mraidBridge setState:MASTMRAIDBridgeStateDefault forWebView:self.webView];
             
-            [self prepareCloseButton];
-            [self restartUpdateTimer];
-            
             [self invokeDelegateSelector:@selector(MASTAdViewDidCollapse:)];
+            
+            [self resumeUpdates];
             break;
         }
     }
@@ -1602,12 +1816,11 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)mraidBridgeUpdatedExpandProperties:(MASTMRAIDBridge*)bridge
 {
-    // Only need to react if the mraid ad is expanded.
-    if (bridge.state != MASTMRAIDBridgeStateExpanded)
-        return;
-    
-    // Nothing really needs to happen now unless the close
-    // button is allowed to be toggled on or off.
+    if ((bridge.state == MASTMRAIDBridgeStateExpanded) ||
+        ((self.placementType == MASTAdViewPlacementTypeInterstitial) && (bridge.state == MASTMRAIDBridgeStateDefault)))
+    {
+        [self prepareCloseButton];
+    }
 }
 
 - (void)mraidBridge:(MASTMRAIDBridge*)bridge expandWithURL:(NSString*)url
@@ -1688,21 +1901,22 @@ static NSString* AdViewUserAgent = nil;
 {
     self.modalViewController.allowRotation = bridge.orientationProperties.allowOrientationChange;
     
-    if (bridge.state != MASTMRAIDBridgeStateExpanded)
-        return;
-    
-    switch (bridge.orientationProperties.forceOrientation)
+    if ((bridge.state == MASTMRAIDBridgeStateExpanded) ||
+        ((self.placementType == MASTAdViewPlacementTypeInterstitial) && (bridge.state == MASTMRAIDBridgeStateDefault)))
     {
-        case MASTMRAIDOrientationPropertiesForceOrientationPortrait:
-            [self.modalViewController forceRotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
-            break;
-            
-        case MASTMRAIDOrientationPropertiesForceOrientationLandscape:
-            [self.modalViewController forceRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft];
-            break;
-            
-        case MASTMRAIDOrientationPropertiesForceOrientationNone:
-            break;
+        switch (bridge.orientationProperties.forceOrientation)
+        {
+            case MASTMRAIDOrientationPropertiesForceOrientationPortrait:
+                [self.modalViewController forceRotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
+                break;
+                
+            case MASTMRAIDOrientationPropertiesForceOrientationLandscape:
+                [self.modalViewController forceRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft];
+                break;
+                
+            case MASTMRAIDOrientationPropertiesForceOrientationNone:
+                break;
+        }
     }
 }
 
@@ -1768,22 +1982,7 @@ static NSString* AdViewUserAgent = nil;
         return;
     }
     
-    CGRect maxFrame = resizeViewSuperview.bounds;
-    
-    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-    if (CGRectEqualToRect(statusBarFrame, CGRectZero) == NO)
-    {
-        if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
-        {
-            maxFrame.origin.y += statusBarFrame.size.height;
-            maxFrame.size.height -= statusBarFrame.size.height;
-        }
-        else
-        {
-            maxFrame.origin.y += statusBarFrame.size.width;
-            maxFrame.size.height -= statusBarFrame.size.width;
-        }
-    }
+    CGRect maxFrame = [self resizeViewMaxRect];
     
     // The actual max size for a resize must be less than the max size reported to the bridge.
     if ((requestedSize.width >= maxFrame.size.width) && (requestedSize.height >= maxFrame.size.height))
@@ -2141,13 +2340,8 @@ static NSString* AdViewUserAgent = nil;
                                  shouldSaveCalendarEvent:event
                                             inEventStore:store];
              
-             UIViewController* rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-             
-             if ([self.delegate respondsToSelector:@selector(MASTAdViewPresentationController:)])
-             {
-                 rootViewController = [self.delegate MASTAdViewPresentationController:self];
-             }
-             
+             UIViewController* rootViewController = [self modalRootViewController];
+
              // Included in this block since this block occurs on the main thread and the
              // following must be on the main thread since it's interacting with the UI.
              if (shouldSave && (rootViewController != nil))
@@ -2316,17 +2510,6 @@ static NSString* AdViewUserAgent = nil;
     // DEV: Use to output content of the buffered response.
     //NSString* debugString = [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
     //NSLog(@"loadContent: %@", debugString);
-    
-    if (self.isExpandedURL)
-    {
-        // This is the result of the parent ad calling expand with a URL.
-        NSString* contentString = [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
-        
-        [self performSelectorOnMainThread:@selector(renderMRAIDAd:) 
-                               withObject:contentString
-                            waitUntilDone:NO];
-        return;
-    }
     
     MASTMoceanAdResponse* response = [[MASTMoceanAdResponse alloc] initWithXML:content];
     [response parse];
@@ -2604,7 +2787,7 @@ static NSString* AdViewUserAgent = nil;
     // Normally canOpenInternall would be processed inside the navigation type selection.
     // However, it's being done outside becuase of the above handling of UIWebViewNavigationTypeOther.
     BOOL canOpenInternal = YES;
-    if ([[request.URL.scheme lowercaseString] hasPrefix:@"http"])
+    if ([[request.URL.scheme lowercaseString] hasPrefix:@"http"] == NO)
     {
         canOpenInternal = NO;
     }
@@ -2681,48 +2864,11 @@ static NSString* AdViewUserAgent = nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)wv
 {
-    // Should making all the JS calls a bit more memory efficient with all the
-    // strings being autorelease.
     @autoreleasepool
     {
         [wv disableSelection];
         
-        if (self.mraidBridge != nil)
-        {
-            [self mraidSupports:wv];
-            
-            MASTMRAIDBridgePlacementType mraidPlacementType = MASTMRAIDBridgePlacementTypeInline;
-            if (self.placementType == MASTAdViewPlacementTypeInterstitial)
-            {
-                mraidPlacementType = MASTMRAIDBridgePlacementTypeInterstitial;
-            }
-            [self.mraidBridge setPlacementType:mraidPlacementType forWebView:wv];
-
-            [self mraidUpdateLayoutForNewState:MASTMRAIDBridgeStateDefault];
-
-            CGSize screenSize = [self screenSizeIncludingStatusBar:NO];
-            MASTMRAIDExpandProperties* expandProperties = [[MASTMRAIDExpandProperties alloc] initWithSize:screenSize];
-            [self.mraidBridge setExpandProperties:expandProperties forWebView:wv];
-            
-            MASTMRAIDResizeProperties* resizeProperties = [MASTMRAIDResizeProperties new];
-            [self.mraidBridge setResizeProperties:resizeProperties forWebView:wv];
-            
-            MASTMRAIDOrientationProperties* orientationProperties = [MASTMRAIDOrientationProperties new];
-            [self.mraidBridge setOrientationProperties:orientationProperties forWebView:wv];
-            
-            if (self.isExpandedURL == NO)
-            {
-                [self.mraidBridge setState:MASTMRAIDBridgeStateDefault forWebView:wv];
-            }
-            else
-            {
-                [self mraidBridge:self.mraidBridge expandWithURL:nil];
-            }
-            
-            [self.mraidBridge sendReadyForWebView:wv];
-            
-            [self prepareCloseButton];
-        }
+        [self mraidInitializeBridge:self.mraidBridge forWebView:wv];
     }
 }
 

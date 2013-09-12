@@ -18,10 +18,8 @@
 {
     [super viewDidLoad];
     
-    NSInteger site = 19829;
     NSInteger zone = 102238;
     
-    super.adView.site = site;
     super.adView.zone = zone;
     
     super.adView.delegate = self;

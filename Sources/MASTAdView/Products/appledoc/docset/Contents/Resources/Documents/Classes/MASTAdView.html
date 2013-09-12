@@ -50,6 +50,8 @@
 	
 	<option value="//api/name/imageView">&nbsp;&nbsp;&nbsp;&nbsp;imageView</option>
 	
+	<option value="//api/name/isInternalBrowserOpen">&nbsp;&nbsp;&nbsp;&nbsp;isInternalBrowserOpen</option>
+	
 	<option value="//api/name/labelView">&nbsp;&nbsp;&nbsp;&nbsp;labelView</option>
 	
 	<option value="//api/name/locationDetectionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;locationDetectionEnabled</option>
@@ -59,8 +61,6 @@
 	<option value="//api/name/placementType">&nbsp;&nbsp;&nbsp;&nbsp;placementType</option>
 	
 	<option value="//api/name/resizeView">&nbsp;&nbsp;&nbsp;&nbsp;resizeView</option>
-	
-	<option value="//api/name/site">&nbsp;&nbsp;&nbsp;&nbsp;site</option>
 	
 	<option value="//api/name/test">&nbsp;&nbsp;&nbsp;&nbsp;test</option>
 	
@@ -74,6 +74,8 @@
 	
 	
 	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/unregisterProtocolClass">&nbsp;&nbsp;&nbsp;&nbsp;+ unregisterProtocolClass</option>
 	
 	<option value="//api/name/version">&nbsp;&nbsp;&nbsp;&nbsp;+ version</option>
 	
@@ -105,6 +107,8 @@
 	<option value="//api/name/showInterstitialWithDuration:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithDuration:</option>
 	
 	<option value="//api/name/update">&nbsp;&nbsp;&nbsp;&nbsp;- update</option>
+	
+	<option value="//api/name/update:">&nbsp;&nbsp;&nbsp;&nbsp;- update:</option>
 	
 	<option value="//api/name/updateWithTimeInterval:">&nbsp;&nbsp;&nbsp;&nbsp;- updateWithTimeInterval:</option>
 	
@@ -160,6 +164,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageView">imageView</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isInternalBrowserOpen">isInternalBrowserOpen</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/labelView">labelView</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/locationDetectionEnabled">locationDetectionEnabled</a></span></li>
@@ -169,8 +175,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/placementType">placementType</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resizeView">resizeView</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/site">site</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/test">test</a></span></li>
 	
@@ -185,6 +189,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unregisterProtocolClass">unregisterProtocolClass</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/version">version</a></span></li>
 	
@@ -217,6 +223,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithDuration:">showInterstitialWithDuration:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/update">update</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/update:">update:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateWithTimeInterval:">updateWithTimeInterval:</a></span></li>
 	
@@ -284,6 +292,14 @@
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/unregisterProtocolClass">+&nbsp;unregisterProtocolClass</a></code>
+		<span class="tooltip"><p>Unregisters the protocol class used to intercept the MRAID bridge request
+from rich media ads.</p></span>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -323,13 +339,6 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/site">&nbsp;&nbsp;site</a></code>
-		<span class="tooltip"><p>Specifies the site for the ad network.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/zone">&nbsp;&nbsp;zone</a></code>
 		<span class="tooltip"><p>Specifies the zone for the ad network.</p></span>
 	</span>
@@ -366,6 +375,13 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/isInternalBrowserOpen">&nbsp;&nbsp;isInternalBrowserOpen</a></code>
+		<span class="tooltip"><p>Returns the status of the internal browser.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
 		<span class="tooltip"><p>Sets the <a href="../Protocols/MASTAdViewDelegate.html">MASTAdViewDelegate</a> delegate receiever for the ad view.</p></span>
 	</span>
@@ -382,15 +398,22 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/update">&ndash;&nbsp;update</a></code>
-		<span class="tooltip"><p>Issues an immediate ad update and cancles any existing ad update.</p></span>
+		<span class="tooltip"><p>Issues an update request.  The request is deferred until user action is completed.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/update:">&ndash;&nbsp;update:</a></code>
+		<span class="tooltip"><p>Issues an <a href="#//api/name/update">update</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/updateWithTimeInterval:">&ndash;&nbsp;updateWithTimeInterval:</a></code>
-		<span class="tooltip"><p>Issues an immediate ad <a href="#//api/name/update">update</a> and cancels any pending ad <a href="#//api/name/update">update</a>.
-Will automatically <a href="#//api/name/update">update</a> every interval seconds.</p></span>
+		<span class="tooltip"><p>Issues an <a href="#//api/name/update">update</a> request that will be deferred if the ad is currently being interacted with.
+Will automatically <a href="#//api/name/update">update</a> every interval seconds (can vary depending on user interaction).</p></span>
 	</span>
 	
 	
@@ -535,7 +558,7 @@ Will automatically <a href="#//api/name/update">update</a> every interval second
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/test">&nbsp;&nbsp;test</a></code>
-		<span class="tooltip"><p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p></span>
+		<span class="tooltip"><p>Instructs the ad server to return test ads for the configured <a href="#//api/name/zone">zone</a>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -770,6 +793,56 @@ another creative (two part expand).</p><div class="warning"><p><strong>Warning:<
 	
 	
 	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isInternalBrowserOpen" title="isInternalBrowserOpen"></a>
+	<h3 class="subsubtitle method-title">isInternalBrowserOpen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the status of the internal browser.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL isInternalBrowserOpen</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the status of the internal browser.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/useInternalBrowser">@property useInternalBrowser</a></p></code></li>
+			
+		</ul>
+	</div>
 	
 	
 	
@@ -1019,54 +1092,13 @@ application.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/site" title="site"></a>
-	<h3 class="subsubtitle method-title">site</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Specifies the site for the ad network.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger site</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Specifies the site for the ad network.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MASTAdView.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/test" title="test"></a>
 	<h3 class="subsubtitle method-title">test</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p>
+		<p>Instructs the ad server to return test ads for the configured <a href="#//api/name/zone">zone</a>.</p>
 	</div>		
 	
     
@@ -1083,7 +1115,7 @@ application.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Instructs the ad server to return test ads for the configured site/<a href="#//api/name/zone">zone</a>.</p><div class="warning"><p><strong>Warning:</strong> This should never be set to <code>YES</code> for application releases.</p></div>
+		<p>Instructs the ad server to return test ads for the configured <a href="#//api/name/zone">zone</a>.</p><div class="warning"><p><strong>Warning:</strong> This should never be set to <code>YES</code> for application releases.</p></div>
 	</div>
 	
 	
@@ -1130,6 +1162,23 @@ application.</p>
 	
 	
 	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/isInternalBrowserOpen">@property isInternalBrowserOpen</a></p></code></li>
+			
+			<li><code><p><a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewInternalBrowserWillOpen:">[MASTAdViewDelegate MASTAdViewInternalBrowserWillOpen:]</a></p></code></li>
+			
+			<li><code><p><a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewInternalBrowserDidOpen:">[MASTAdViewDelegate MASTAdViewInternalBrowserDidOpen:]</a></p></code></li>
+			
+			<li><code><p><a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewInternalBrowserWillClose:">[MASTAdViewDelegate MASTAdViewInternalBrowserWillClose:]</a></p></code></li>
+			
+			<li><code><p><a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewInternalBrowserDidClose:">[MASTAdViewDelegate MASTAdViewInternalBrowserDidClose:]</a></p></code></li>
+			
+		</ul>
+	</div>
 	
 	
 	
@@ -1233,6 +1282,61 @@ interfere with richmedia ads.</p></div>
 					<div class="section section-methods">
 						<a title="Class Methods" name="class_methods"></a>
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/unregisterProtocolClass" title="unregisterProtocolClass"></a>
+	<h3 class="subsubtitle method-title">unregisterProtocolClass</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Unregisters the protocol class used to intercept the MRAID bridge request
+from rich media ads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)unregisterProtocolClass</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Unregisters the protocol class used to intercept the MRAID bridge request
+from rich media ads.</p>
+
+<p>Note: The registered NSURLProtocol class used by the SDK only intercepts requests
+for &ldquo;mraid.js&rdquo; from a UIWebView.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSURLProtocol_Class/Reference/Reference.html">NSURLProtocol</a> for any possible impact to the application.</p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/version" title="version"></a>
@@ -1466,12 +1570,23 @@ at initialization time, ensure that the view&rsquo;s frame is set prior to calli
 <p>-Collapses any expanded or resized richmedia ads.
 -Closes interstitial.</p>
 
+<p>Cancels any deferred <a href="#//api/name/update">update</a>.</p>
+
 <p>Unlike <a href="#//api/name/reset">reset</a>, it does not <a href="#//api/name/reset">reset</a> the instance to it&rsquo;s default state.</p>
 	</div>
 	
 	
 	
 	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/update:">&ndash; update:</a></p></code></li>
+			
+		</ul>
+	</div>
 	
 	
 	
@@ -1919,7 +2034,7 @@ the MASTAdView instance after its intended release.</p></div>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Issues an immediate ad update and cancles any existing ad update.</p>
+		<p>Issues an update request.  The request is deferred until user action is completed.</p>
 	</div>		
 	
     
@@ -1936,12 +2051,79 @@ the MASTAdView instance after its intended release.</p></div>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Issues an immediate ad update and cancles any existing ad update.</p>
+		<p>Issues an update request.  The request is deferred until user action is completed.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/update:">&ndash; update:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MASTAdView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/update:" title="update:"></a>
+	<h3 class="subsubtitle method-title">update:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Issues an <a href="#//api/name/update">update</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)update:(BOOL)<em>force</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>force</em></dt>
+			<dd><p>Set to <code>YES</code> to force an <a href="#//api/name/update">update</a> regardless of current ad status/interaction.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Issues an update.</p>
+
+<p>Resets any interval update from updateWithTimeInterval:.</p>
+
+<p>The update will be deferred if the user is interacting with the ad instance.  This can
+include the internal browser being open or a rich media ad in an expanded or resized state.
+If deferred the update will resume when the interaction is completed.  Specifying YES to
+the force property will close any user interaction and perform the update immediately.</p>
 
 <p>If <a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewSupportsCalendar:">[MASTAdViewDelegate MASTAdViewSupportsCalendar:]</a> is implemented by the <a href="#//api/name/delegate">delegate</a> then
 this message will determine if a request to the user for access to the calendar is needed.
 If so, the instance will request access from the user.  Developers desiring to control when
-this request occurs can do so prior to calling update.  Refer to iOS EKEventStore
+this request occurs can do so prior to calling <a href="#//api/name/update">update</a>.  Refer to iOS EKEventStore
 documentation for more information.</p>
 	</div>
 	
@@ -1966,8 +2148,8 @@ documentation for more information.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Issues an immediate ad <a href="#//api/name/update">update</a> and cancels any pending ad <a href="#//api/name/update">update</a>.
-Will automatically <a href="#//api/name/update">update</a> every interval seconds.</p>
+		<p>Issues an <a href="#//api/name/update">update</a> request that will be deferred if the ad is currently being interacted with.
+Will automatically <a href="#//api/name/update">update</a> every interval seconds (can vary depending on user interaction).</p>
 	</div>		
 	
     
@@ -1994,8 +2176,8 @@ Will automatically <a href="#//api/name/update">update</a> every interval second
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Issues an immediate ad update and cancels any pending ad update.
-Will automatically update every interval seconds.</p>
+		<p>Issues an update request that will be deferred if the ad is currently being interacted with.
+Will automatically update every interval seconds (can vary depending on user interaction).</p>
 
 <p>If <a href="../Protocols/MASTAdViewDelegate.html#//api/name/MASTAdViewSupportsCalendar:">[MASTAdViewDelegate MASTAdViewSupportsCalendar:]</a> is implemented by the <a href="#//api/name/delegate">delegate</a> then
 this message will determine if a request to the user for access to the calendar is needed.
@@ -2042,7 +2224,7 @@ the MASTAdView instance after its intended release.</p></div>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mocean Mobile. All rights reserved. (Last updated: 2013-03-26)</span><br />
+						<p><span class="copyright">&copy; 2013 Mocean Mobile. All rights reserved. (Last updated: 2013-09-03)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
