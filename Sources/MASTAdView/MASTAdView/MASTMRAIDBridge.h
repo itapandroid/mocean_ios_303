@@ -41,8 +41,6 @@ typedef enum
 @protocol MASTMRAIDBridgeDelegate <NSObject>
 @required
 
-- (void)mraidBridgeInit:(MASTMRAIDBridge*)bridge;
-
 - (void)mraidBridgeClose:(MASTMRAIDBridge*)bridge;
 
 - (void)mraidBridge:(MASTMRAIDBridge*)bridge openURL:(NSString*)url;
@@ -71,8 +69,6 @@ typedef enum
 @interface MASTMRAIDBridge : NSObject
 
 @property (nonatomic, assign) id<MASTMRAIDBridgeDelegate> delegate;
-
-@property (nonatomic, assign) BOOL needsInit;
 
 @property (nonatomic, readonly) MASTMRAIDBridgeState state;
 @property (nonatomic, readonly) MASTMRAIDExpandProperties* expandProperties;

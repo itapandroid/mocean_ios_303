@@ -19,8 +19,10 @@
 {
     [super viewDidLoad];
     
+    NSInteger site = 19829;
     NSInteger zone = 88269;
     
+    super.adView.site = site;
     super.adView.zone = zone;
 }
 

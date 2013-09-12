@@ -11,12 +11,13 @@
 
 
 @interface MASTSAdvancedTable ()
+@property (nonatomic, assign) NSInteger tableSite;
 @property (nonatomic, assign) NSInteger tableZone;
 @end
 
 @implementation MASTSAdvancedTable
 
-@synthesize tableZone;
+@synthesize tableSite, tableZone;
 
 - (id)init
 {
@@ -41,6 +42,7 @@
 - (void)refresh:(id)sender
 {
     MASTSAdConfigPrompt* prompt = [[[MASTSAdConfigPrompt alloc] initWithDelegate:self
+                                                                            site:self.tableSite
                                                                             zone:self.tableZone] autorelease];
     [prompt show];
 }
@@ -48,7 +50,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    self.tableSite  = 19829;
     self.tableZone = 102238;
 }
 
@@ -124,7 +127,8 @@ static NSInteger AdViewTag = 123;
             MASTAdView* adView = [[[MASTAdView alloc] initWithFrame:frame] autorelease];
             adView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
             adView.backgroundColor = [UIColor darkGrayColor];
-            adView.logLevel = MASTAdViewLogEventTypeDebug;
+            //adView.showPreviousAdOnError = YES;
+            //adView.autoCollapse = NO;
             adView.tag = AdViewTag;
             [cell.contentView addSubview:adView];
         }
@@ -137,6 +141,7 @@ static NSInteger AdViewTag = 123;
     else
     {
         MASTAdView* adView = (MASTAdView*)[cell.contentView viewWithTag:AdViewTag];
+        adView.site = self.tableSite;
         adView.zone = self.tableZone;
         [adView update];
     }
@@ -165,8 +170,9 @@ static NSInteger AdViewTag = 123;
     
 }
 
-- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithZone:(NSInteger)zone
+- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone
 {
+    self.tableSite = site;
     self.tableZone = zone;
     
     NSArray* cells = [self.tableView visibleCells];
@@ -176,6 +182,8 @@ static NSInteger AdViewTag = 123;
         if (cell.reuseIdentifier == AdCellIdentifier)
         {
             MASTAdView* adView = (MASTAdView*)[cell.contentView viewWithTag:AdViewTag];
+            
+            adView.site = site;
             adView.zone = zone;
             [adView update];
         }

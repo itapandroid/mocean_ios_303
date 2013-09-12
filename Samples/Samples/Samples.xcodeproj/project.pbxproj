@@ -53,7 +53,6 @@
 		C57D7BB51648A4F80084B896 /* MASTSSimpleAnimatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C57D7BB41648A4F80084B896 /* MASTSSimpleAnimatedGIF.m */; };
 		C5ACCB7D1610EDBD0018E0AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ACCB7C1610EDBD0018E0AD /* CoreGraphics.framework */; };
 		C5B722D8165C0A3E0061F385 /* MASTSCustomLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B722D7165C0A3E0061F385 /* MASTSCustomLocal.m */; };
-		C5C7B3A9176A61320083EDB5 /* MASTSDelegateInternalBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7B3A8176A61320083EDB5 /* MASTSDelegateInternalBrowser.m */; };
 		C5D30CD916123DE800CA45A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D30CD716123DE000CA45A3 /* Default-568h@2x.png */; };
 		C5D30CFA1612558A00CA45A3 /* MASTSSimpleInterstitialDirect.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D30CF91612558A00CA45A3 /* MASTSSimpleInterstitialDirect.m */; };
 		C5D30D7C161A1C9800CA45A3 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D30D7B161A1C9800CA45A3 /* EventKitUI.framework */; };
@@ -157,8 +156,6 @@
 		C5ACCB7C1610EDBD0018E0AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C5B722D6165C0A3E0061F385 /* MASTSCustomLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTSCustomLocal.h; sourceTree = "<group>"; };
 		C5B722D7165C0A3E0061F385 /* MASTSCustomLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASTSCustomLocal.m; sourceTree = "<group>"; };
-		C5C7B3A7176A61320083EDB5 /* MASTSDelegateInternalBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTSDelegateInternalBrowser.h; sourceTree = "<group>"; };
-		C5C7B3A8176A61320083EDB5 /* MASTSDelegateInternalBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASTSDelegateInternalBrowser.m; sourceTree = "<group>"; };
 		C5D30CD716123DE000CA45A3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5D30CE3161251E600CA45A3 /* MASTAdView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MASTAdView.xcodeproj; path = ../../Sources/MASTAdView/MASTAdView.xcodeproj; sourceTree = "<group>"; };
 		C5D30CF81612558A00CA45A3 /* MASTSSimpleInterstitialDirect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASTSSimpleInterstitialDirect.h; sourceTree = "<group>"; };
@@ -372,8 +369,6 @@
 				C511CA4116A44E3E005F61FB /* MASTSDelegateLogging.m */,
 				C511CA6816A4BA36005F61FB /* MASTSDelegateNoContent.h */,
 				C511CA6916A4BA36005F61FB /* MASTSDelegateNoContent.m */,
-				C5C7B3A7176A61320083EDB5 /* MASTSDelegateInternalBrowser.h */,
-				C5C7B3A8176A61320083EDB5 /* MASTSDelegateInternalBrowser.m */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -516,7 +511,6 @@
 				C511CA6416A489D1005F61FB /* MASTSAdConfigPrompt.m in Sources */,
 				C511CA6716A4B320005F61FB /* MASTSErrorReset.m in Sources */,
 				C511CA6A16A4BA36005F61FB /* MASTSDelegateNoContent.m in Sources */,
-				C5C7B3A9176A61320083EDB5 /* MASTSDelegateInternalBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +575,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Dickert (T7335UPPY4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -602,14 +596,12 @@
 		3C91DDBF153F72AC00FCF6CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Samples/Samples-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Samples/Samples-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,7 +615,6 @@
 				INFOPLIST_FILE = "Samples/Samples-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

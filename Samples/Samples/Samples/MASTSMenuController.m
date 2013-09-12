@@ -26,7 +26,6 @@
 #import "MASTSDelegateThirdParty.h"
 #import "MASTSDelegateLogging.h"
 #import "MASTSDelegateNoContent.h"
-#import "MASTSDelegateInternalBrowser.h"
 #import "MASTSErrorHide.h"
 #import "MASTSErrorImage.h"
 #import "MASTSErrorReset.h"
@@ -118,7 +117,7 @@
         case 2:
             return 2;
         case 3:
-            return 6;
+            return 5;
         case 4:
             return 3;
     }
@@ -251,9 +250,6 @@
                 case 4:
                     label = @"No Content Zone";
                     break;
-                case 5:
-                    label = @"Internal Browser";
-                    break;
             }
             break;
         }
@@ -366,9 +362,6 @@
                     break;
                 case 4:
                     testController = [[MASTSDelegateNoContent new] autorelease];
-                    break;
-                case 5:
-                    testController = [[MASTSDelegateInternalBrowser new] autorelease];
                     break;
             }
             break;

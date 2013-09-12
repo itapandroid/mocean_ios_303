@@ -18,9 +18,12 @@
 {
     [super viewDidLoad];
     
+    NSInteger site = 19829;
     NSInteger zone = 88269;
     
+    self.adView.site = site;
     self.adView.zone = zone;
+    
     self.adView.logLevel = MASTAdViewLogEventTypeDebug;
 }
 

@@ -11,8 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-    @autoreleasepool
-    {
+    @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, nil);
     }
 }

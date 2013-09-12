@@ -45,6 +45,7 @@
 - (void)refresh:(id)sender
 {
     MASTSAdConfigPrompt* prompt = [[[MASTSAdConfigPrompt alloc] initWithDelegate:self
+                                                                           site:self.adView.site
                                                                            zone:self.adView.zone] autorelease];
     [prompt show];
 }
@@ -67,7 +68,6 @@
     self.adView = [[[MASTAdView alloc] initWithFrame:frame] autorelease];
     self.adView.backgroundColor = [UIColor lightGrayColor];
     self.adView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-    self.adView.logLevel = MASTAdViewLogEventTypeDebug;
     [self.view addSubview:self.adView];
 }
 
@@ -97,7 +97,7 @@
     {
         self.firstAppear = NO;
         
-        if (self.adView.zone > 0)
+        if ((self.adView.site > 0) && (self.adView.zone > 0))
         {
             [self.adView update];
         }
@@ -133,8 +133,9 @@
 
 #pragma mark -
 
-- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithZone:(NSInteger)zone
+- (void)configPrompt:(MASTSAdConfigPrompt *)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone
 {
+    self.adView.site = site;
     self.adView.zone = zone;
     
     [self.adView update];

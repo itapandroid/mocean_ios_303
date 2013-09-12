@@ -679,8 +679,6 @@ window.mraid_init = function()
         mraid.nativeInvoke(invoke);
     };
     
-    
-    mraid.nativeInvoke("mraid://init");
 };
 
 if (!window.mraid)

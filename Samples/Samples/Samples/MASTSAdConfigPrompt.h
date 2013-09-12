@@ -14,12 +14,12 @@
 @required
 
 - (void)configPromptCancel:(MASTSAdConfigPrompt*)prompt;
-- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithZone:(NSInteger)zone;
+- (void)configPrompt:(MASTSAdConfigPrompt*)prompt refreshWithSite:(NSInteger)site zone:(NSInteger)zone;
 
 @end
 
 @interface MASTSAdConfigPrompt : UIAlertView
 
-- (id)initWithDelegate:(id<MASTSAdConfigPromptDelegate>)delegate zone:(NSInteger)zone;
+- (id)initWithDelegate:(id<MASTSAdConfigPromptDelegate>)delegate site:(NSInteger)site zone:(NSInteger)zone;
 
 @end

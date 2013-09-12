@@ -20,7 +20,6 @@
 {
     self.textView = nil;
     
-    // Note: relying on the base class to reset the adView delegate.
     [super dealloc];
 }
 
@@ -160,38 +159,6 @@
 - (void)MASTAdViewDidCollapse:(MASTAdView*)adView
 {
     NSMutableString* entry = [NSMutableString stringWithString:@"MASTAdViewDidCollapse:"];
-    [entry appendFormat:@"\nadView: %@", [adView description]];
-    
-    [self writeEntry:entry];
-}
-
-- (void)MASTAdViewInternalBrowserWillOpen:(MASTAdView *)adView
-{
-    NSMutableString* entry = [NSMutableString stringWithString:@"MASTAdViewInternalBrowserWillOpen:"];
-    [entry appendFormat:@"\nadView: %@", [adView description]];
-    
-    [self writeEntry:entry];
-}
-
-- (void)MASTAdViewInternalBrowserDidOpen:(MASTAdView *)adView
-{
-    NSMutableString* entry = [NSMutableString stringWithString:@"MASTAdViewInternalBrowserDidOpen:"];
-    [entry appendFormat:@"\nadView: %@", [adView description]];
-    
-    [self writeEntry:entry];
-}
-
-- (void)MASTAdViewInternalBrowserWillClose:(MASTAdView *)adView
-{
-    NSMutableString* entry = [NSMutableString stringWithString:@"MASTAdViewInternalBrowserWillClose:"];
-    [entry appendFormat:@"\nadView: %@", [adView description]];
-    
-    [self writeEntry:entry];
-}
-
-- (void)MASTAdViewInternalBrowserDidClose:(MASTAdView *)adView
-{
-    NSMutableString* entry = [NSMutableString stringWithString:@"MASTAdViewInternalBrowserDidClose:"];
     [entry appendFormat:@"\nadView: %@", [adView description]];
     
     [self writeEntry:entry];
